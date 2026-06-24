@@ -11,47 +11,29 @@
   <title>Algarrobo Connect</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --azul-900: #1e293b;
-      --azul-800: #1e40af;
-      --azul-700: #1d4ed8;
-      --azul-600: #2563eb;
-      --azul-500: #2563eb;
-      --azul-400: #3b82f6;
-      --azul-300: #93c5fd;
-      --azul-100: #dbeafe;
-      --azul-50:  #eff6ff;
-      --blanco:   #ffffff;
-      --gris-900: #111827;
-      --gris-700: #374151;
-      --gris-500: #6b7280;
-      --gris-200: #e5e7eb;
-      --gris-100: #f3f4f6;
-      --gris-50:  #f9fafb;
-      --fondo:    #f0f2f5;
-      --verde:    #16a34a;
-      --verde-bg: #dcfce7;
-      --rojo:     #dc2626;
-      --rojo-bg:  #fee2e2;
+      --azul-900: #1e293b; --azul-800: #1e40af; --azul-700: #1d4ed8;
+      --azul-600: #2563eb; --azul-500: #2563eb; --azul-400: #3b82f6;
+      --azul-300: #93c5fd; --azul-100: #dbeafe; --azul-50: #eff6ff;
+      --blanco: #ffffff; --gris-900: #111827; --gris-700: #374151;
+      --gris-500: #6b7280; --gris-200: #e5e7eb; --gris-100: #f3f4f6;
+      --gris-50: #f9fafb; --fondo: #f0f2f5;
+      --verde: #16a34a; --verde-bg: #dcfce7;
+      --rojo: #dc2626; --rojo-bg: #fee2e2;
       --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      --radio: 14px;
       --sombra: 0 4px 24px rgba(0,0,0,0.18);
       --sombra-lg: 0 8px 40px rgba(0,0,0,0.28);
     }
-
     html { height: 100%; -webkit-text-size-adjust: 100%; }
     body {
-      font-family: var(--font);
-      background: var(--fondo);
-      min-height: 100vh;
-      color: var(--gris-900);
+      font-family: var(--font); background: var(--fondo);
+      min-height: 100vh; color: var(--gris-900);
       display: flex; flex-direction: column;
       padding-top: env(safe-area-inset-top);
       padding-bottom: env(safe-area-inset-bottom);
     }
 
-    /* ── HEADER ── */
+    /* HEADER */
     .header {
       background: var(--blanco);
       box-shadow: 0 1px 8px rgba(0,0,0,0.07);
@@ -66,8 +48,7 @@
     .logo-wrap {
       flex-shrink: 0;
       background: linear-gradient(135deg, var(--azul-900), var(--azul-600));
-      border-radius: 12px;
-      width: 50px; height: 50px;
+      border-radius: 12px; width: 50px; height: 50px;
       display: flex; align-items: center; justify-content: center;
     }
     .logo-icon { font-size: 24px; }
@@ -81,46 +62,36 @@
       letter-spacing: -0.5px; line-height: 1;
     }
     .header-title .highlight { color: var(--azul-600); }
-    .header-loc {
-      font-size: 11px; color: var(--gris-500); margin-top: 3px; font-weight: 500;
-    }
+    .header-loc { font-size: 11px; color: var(--gris-500); margin-top: 3px; font-weight: 500; }
     .header-actions { flex-shrink: 0; }
     .btn-admin {
       background: var(--gris-100); border: 1.5px solid var(--gris-200);
       border-radius: 10px; padding: 8px 14px;
       font-size: 12px; font-weight: 700; color: var(--gris-700);
-      cursor: pointer; -webkit-tap-highlight-color: transparent;
-      transition: all 0.15s;
+      cursor: pointer; -webkit-tap-highlight-color: transparent; transition: all 0.15s;
     }
     .btn-admin:active { background: var(--azul-50); border-color: var(--azul-400); color: var(--azul-600); }
 
-    /* ── MAIN ── */
+    /* MAIN */
     .main {
       flex: 1; max-width: 680px; width: 100%;
       margin: 0 auto; padding: 24px 16px 48px;
       display: flex; flex-direction: column; gap: 16px;
     }
 
-    /* ── HERO BANNER ── */
+    /* HERO */
     .hero {
       background: linear-gradient(135deg, var(--azul-900) 0%, var(--azul-700) 60%, var(--azul-500) 100%);
-      border-radius: 18px;
-      padding: 28px 24px;
+      border-radius: 18px; padding: 28px 24px;
       position: relative; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute; top: -40px; right: -30px;
-      width: 180px; height: 180px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 50%;
+      content: ''; position: absolute; top: -40px; right: -30px;
+      width: 180px; height: 180px; background: rgba(255,255,255,0.04); border-radius: 50%;
     }
     .hero::after {
-      content: '';
-      position: absolute; bottom: -60px; right: 40px;
-      width: 120px; height: 120px;
-      background: rgba(255,255,255,0.03);
-      border-radius: 50%;
+      content: ''; position: absolute; bottom: -60px; right: 40px;
+      width: 120px; height: 120px; background: rgba(255,255,255,0.03); border-radius: 50%;
     }
     .hero-label {
       font-size: 9px; font-weight: 700; letter-spacing: 2.5px;
@@ -130,183 +101,125 @@
       font-size: 26px; font-weight: 900; color: var(--blanco);
       letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 8px;
     }
-    .hero-sub {
-      font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5;
-    }
-    .hero-dots {
-      display: flex; gap: 6px; margin-top: 18px;
-    }
-    .hero-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(255,255,255,0.25);
-    }
+    .hero-sub { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+    .hero-dots { display: flex; gap: 6px; margin-top: 18px; }
+    .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.25); }
     .hero-dot.active { background: var(--blanco); width: 18px; border-radius: 3px; }
 
-    /* ── SECCIÓN LABEL ── */
+    /* SECTION LABEL */
     .section-label {
       font-size: 10px; font-weight: 700; text-transform: uppercase;
       letter-spacing: 1.5px; color: var(--gris-500);
-      display: flex; align-items: center; gap: 8px;
-      padding: 0 4px;
+      display: flex; align-items: center; gap: 8px; padding: 0 4px;
     }
-    .section-label::after {
-      content: ''; flex: 1; height: 1px; background: var(--gris-200);
-    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gris-200); }
 
-    /* ── APP CARDS ── */
-    .apps-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
+    /* APP CARDS */
+    .apps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .app-card {
-      background: var(--blanco);
-      border-radius: 18px;
-      border: 1.5px solid var(--gris-200);
-      box-shadow: var(--sombra);
-      overflow: hidden;
-      display: flex; flex-direction: column;
+      background: var(--blanco); border-radius: 18px;
+      border: 1.5px solid var(--gris-200); box-shadow: var(--sombra);
+      overflow: hidden; display: flex; flex-direction: column;
       transition: transform 0.15s, box-shadow 0.15s;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      text-decoration: none;
-      color: inherit;
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
+      text-decoration: none; color: inherit;
     }
     .app-card:active { transform: scale(0.97); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
-    .app-card.disabled { opacity: 0.45; pointer-events: none; }
-
     .app-card-top { padding: 20px 18px 16px; flex: 1; }
     .app-icon-wrap {
-      width: 48px; height: 48px;
-      border-radius: 14px;
+      width: 48px; height: 48px; border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       font-size: 24px; margin-bottom: 14px;
     }
-    .icon-azul    { background: var(--azul-50); }
-    .icon-verde   { background: var(--verde-bg); }
-    .icon-naranja { background: #fff7ed; }
-    .icon-morado  { background: #f5f3ff; }
-
+    .icon-azul  { background: var(--azul-50); }
+    .icon-verde { background: var(--verde-bg); }
     .app-name { font-size: 15px; font-weight: 800; color: var(--gris-900); line-height: 1.2; margin-bottom: 4px; }
     .app-desc { font-size: 11px; color: var(--gris-500); line-height: 1.4; }
-
     .app-card-footer {
-      border-top: 1px solid var(--gris-100);
-      padding: 11px 18px;
+      border-top: 1px solid var(--gris-100); padding: 11px 18px;
       display: flex; align-items: center; justify-content: space-between;
     }
     .app-status {
       font-size: 10px; font-weight: 700;
       display: flex; align-items: center; gap: 5px;
     }
-    .app-status::before {
-      content: ''; width: 6px; height: 6px;
-      border-radius: 50%; flex-shrink: 0;
-    }
-    .status-ok::before  { background: var(--verde); }
-    .status-ok          { color: var(--verde); }
-    .status-off::before { background: var(--gris-500); }
-    .status-off         { color: var(--gris-500); }
+    .app-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .status-ok::before { background: var(--verde); }
+    .status-ok { color: var(--verde); }
     .app-arrow { font-size: 16px; color: var(--azul-400); }
 
-    /* ── BOTÓN FULL WIDTH ── */
+    /* BOTONES */
     .btn-abrir {
       display: flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 16px 20px;
-      border-radius: 13px; border: none;
+      padding: 16px 20px; border-radius: 13px; border: none;
       font-size: 16px; font-weight: 700;
       cursor: pointer; text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
-      transition: all 0.15s;
-      width: 100%;
+      -webkit-tap-highlight-color: transparent; transition: all 0.15s; width: 100%;
     }
     .btn-abrir.azul {
       background: linear-gradient(135deg, var(--azul-700), var(--azul-500));
-      color: var(--blanco);
-      box-shadow: 0 4px 14px rgba(29,78,216,0.35);
+      color: var(--blanco); box-shadow: 0 4px 14px rgba(29,78,216,0.35);
     }
     .btn-abrir.azul:active { transform: scale(0.98); opacity: 0.92; }
     .btn-abrir.gris {
-      background: var(--gris-100);
-      border: 1.5px solid var(--gris-200);
-      color: var(--gris-700);
+      background: var(--gris-100); border: 1.5px solid var(--gris-200); color: var(--gris-700);
     }
     .btn-abrir.gris:active { background: var(--azul-50); border-color: var(--azul-300); color: var(--azul-600); }
 
-    /* ── CARD ACCESO RÁPIDO ── */
+    /* ACCESO RÁPIDO */
     .quick-card {
-      background: var(--blanco);
-      border-radius: 16px;
-      border: 1.5px solid var(--gris-200);
-      box-shadow: var(--sombra);
-      padding: 20px;
+      background: var(--blanco); border-radius: 16px;
+      border: 1.5px solid var(--gris-200); box-shadow: var(--sombra); padding: 20px;
     }
     .quick-title {
       font-size: 13px; font-weight: 700; color: var(--gris-900);
-      margin-bottom: 14px;
-      display: flex; align-items: center; gap: 7px;
+      margin-bottom: 14px; display: flex; align-items: center; gap: 7px;
     }
-    .quick-title-icon { font-size: 16px; }
     .quick-btns { display: flex; flex-direction: column; gap: 10px; }
 
-    /* ── OVERLAY GENÉRICO ── */
+    /* OVERLAY / SHEET */
     .overlay {
-      position: fixed; inset: 0;
-      background: rgba(17,24,39,0.6);
-      z-index: 100;
-      display: flex; align-items: flex-end;
+      position: fixed; inset: 0; background: rgba(17,24,39,0.6);
+      z-index: 100; display: flex; align-items: flex-end;
       padding-bottom: env(safe-area-inset-bottom);
       animation: fadeIn 0.2s ease;
     }
     .overlay.hidden { display: none; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
     .sheet {
-      background: var(--blanco);
-      border-radius: 22px 22px 0 0;
-      width: 100%; max-height: 90vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding: 0 0 32px;
+      background: var(--blanco); border-radius: 22px 22px 0 0;
+      width: 100%; max-height: 90vh; overflow-y: auto;
+      -webkit-overflow-scrolling: touch; padding: 0 0 32px;
       animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes slideUp {
       from { transform: translateY(60px); opacity: 0; }
       to   { transform: translateY(0);    opacity: 1; }
     }
-
     .sheet-handle {
       width: 36px; height: 4px; border-radius: 2px;
       background: var(--gris-200); margin: 14px auto 0;
     }
     .sheet-header {
-      padding: 18px 22px 14px;
-      border-bottom: 1px solid var(--gris-100);
+      padding: 18px 22px 14px; border-bottom: 1px solid var(--gris-100);
       display: flex; align-items: center; justify-content: space-between;
     }
     .sheet-title { font-size: 17px; font-weight: 900; color: var(--gris-900); }
     .sheet-sub   { font-size: 12px; color: var(--gris-500); margin-top: 2px; }
     .btn-cerrar {
       background: var(--gris-100); border: 1px solid var(--gris-200);
-      border-radius: 50%; width: 32px; height: 32px;
-      font-size: 14px; cursor: pointer; display: flex;
-      align-items: center; justify-content: center;
+      border-radius: 50%; width: 32px; height: 32px; font-size: 14px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* ── LOGIN PANEL ── */
+    /* LOGIN */
     .login-body {
-      padding: 28px 22px;
-      display: flex; flex-direction: column; gap: 16px;
-      align-items: center;
+      padding: 28px 22px; display: flex; flex-direction: column;
+      gap: 16px; align-items: center;
     }
-    .login-icon {
-      font-size: 48px; margin-bottom: 4px;
-    }
-    .login-info {
-      font-size: 13px; color: var(--gris-500); text-align: center; line-height: 1.5;
-    }
+    .login-icon { font-size: 48px; margin-bottom: 4px; }
+    .login-info { font-size: 13px; color: var(--gris-500); text-align: center; line-height: 1.5; }
     .login-error {
       font-size: 12px; color: var(--rojo); font-weight: 600;
       background: var(--rojo-bg); border-radius: 8px;
@@ -314,20 +227,17 @@
     }
     .login-error.hidden { display: none; }
 
-    /* ── ADMIN PANEL ── */
+    /* ADMIN */
     .admin-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 18px; }
-
     .field-group { display: flex; flex-direction: column; gap: 6px; }
     .field-label {
       font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
       text-transform: uppercase; color: var(--azul-500);
     }
     .field-sublabel { font-size: 11px; color: var(--gris-500); margin-top: -2px; }
-
     .field-row { display: flex; gap: 8px; }
     .field-input {
-      flex: 1;
-      padding: 12px 14px;
+      flex: 1; padding: 12px 14px;
       border: 2px solid var(--gris-200); border-radius: 11px;
       font-size: 15px; font-family: var(--font); color: var(--gris-900);
       background: var(--gris-50); outline: none; -webkit-appearance: none;
@@ -338,19 +248,38 @@
       box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
     }
     .field-input::placeholder { color: #9ca3af; }
-
     .field-emoji {
-      width: 48px; height: 48px; flex-shrink: 0;
-      padding: 12px;
+      width: 48px; height: 48px; flex-shrink: 0; padding: 12px;
       border: 2px solid var(--gris-200); border-radius: 11px;
       font-size: 20px; font-family: var(--font); color: var(--gris-900);
       background: var(--gris-50); outline: none; -webkit-appearance: none;
-      text-align: center; cursor: pointer;
-      transition: border-color 0.2s;
+      text-align: center; cursor: pointer; transition: border-color 0.2s;
     }
     .field-emoji:focus { border-color: var(--azul-400); }
 
+    /* URL fija — solo lectura visual */
+    .url-fija {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--gris-50); border: 2px solid var(--gris-200);
+      border-radius: 11px; padding: 11px 14px;
+    }
+    .url-fija-icono { font-size: 16px; flex-shrink: 0; }
+    .url-fija-texto {
+      font-size: 12px; color: var(--gris-500);
+      word-break: break-all; line-height: 1.4;
+    }
+    .url-fija-badge {
+      flex-shrink: 0; font-size: 9px; font-weight: 700;
+      background: var(--verde-bg); color: var(--verde);
+      border-radius: 6px; padding: 3px 7px; letter-spacing: 0.5px;
+    }
+
     .divider { height: 1px; background: var(--gris-100); margin: 4px 0; }
+    .admin-info {
+      background: var(--azul-50); border: 1.5px solid var(--azul-100);
+      border-radius: 11px; padding: 12px 14px;
+      font-size: 12px; color: var(--azul-600); line-height: 1.5;
+    }
 
     .btn-guardar {
       padding: 15px 20px;
@@ -362,8 +291,6 @@
       transition: all 0.15s; width: 100%;
     }
     .btn-guardar:active { transform: scale(0.98); opacity: 0.9; }
-    .btn-guardar:disabled { opacity: 0.6; cursor: not-allowed; }
-
     .btn-logout {
       padding: 12px 20px;
       background: var(--gris-100); border: 1.5px solid var(--gris-200);
@@ -374,15 +301,14 @@
     }
     .btn-logout:active { background: var(--rojo-bg); border-color: var(--rojo); color: var(--rojo); }
 
-    /* ── TOAST ── */
+    /* TOAST */
     .toast {
       position: fixed; bottom: calc(24px + env(safe-area-inset-bottom));
       left: 50%; transform: translateX(-50%);
       background: var(--gris-900); color: var(--blanco);
       padding: 12px 22px; border-radius: 30px;
       font-size: 14px; font-weight: 600;
-      box-shadow: var(--sombra-lg); z-index: 999;
-      white-space: nowrap;
+      box-shadow: var(--sombra-lg); z-index: 999; white-space: nowrap;
       animation: toastIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .toast.hidden { display: none; }
@@ -391,22 +317,14 @@
       to   { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
 
-    /* ── CARGANDO ── */
-    .cargando {
-      text-align: center; color: var(--gris-500);
-      font-size: 13px; padding: 12px 0;
-    }
-
-    /* ── FOOTER ── */
+    /* FOOTER */
     .footer {
       text-align: center; padding: 16px;
       font-size: 11px; color: var(--gris-500);
-      border-top: 1px solid var(--gris-200);
-      background: var(--blanco);
+      border-top: 1px solid var(--gris-200); background: var(--blanco);
       padding-bottom: calc(16px + env(safe-area-inset-bottom));
     }
 
-    /* ── Responsive ── */
     @media (max-width: 400px) {
       .apps-grid { grid-template-columns: 1fr; }
       .hero-title { font-size: 22px; }
@@ -416,12 +334,9 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="header">
     <div class="header-inner">
-      <div class="logo-wrap">
-        <span class="logo-icon">🔗</span>
-      </div>
+      <div class="logo-wrap"><span class="logo-icon">🔗</span></div>
       <div class="header-text">
         <div class="header-eyebrow">CasaIdeas Algarrobo</div>
         <div class="header-title">Algarrobo <span class="highlight">Connect</span></div>
@@ -433,10 +348,8 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="main">
 
-    <!-- Hero -->
     <div class="hero">
       <div class="hero-label">Bienvenido</div>
       <div class="hero-title">Tus herramientas,<br>en un solo lugar</div>
@@ -448,55 +361,46 @@
       </div>
     </div>
 
-    <!-- Apps grid -->
     <div class="section-label">Aplicaciones</div>
 
-    <div id="apps-cargando" class="cargando">Cargando apps…</div>
-
-    <div class="apps-grid" id="apps-grid" style="display:none">
-      <a id="card1" class="app-card disabled" href="#" onclick="abrirApp(1, event)">
+    <div class="apps-grid">
+      <a class="app-card" href="#" onclick="abrirApp(0,event)">
         <div class="app-card-top">
-          <div class="app-icon-wrap icon-azul"><span id="emoji1">📦</span></div>
-          <div class="app-name" id="nombre1">—</div>
-          <div class="app-desc" id="desc1">—</div>
+          <div class="app-icon-wrap icon-azul"><span id="emoji-0">📦</span></div>
+          <div class="app-name" id="nombre-0">Control Sapito 3.0</div>
+          <div class="app-desc" id="desc-0">Consulta de stock e inventario en bodega</div>
         </div>
         <div class="app-card-footer">
-          <span class="app-status status-off" id="status1">Sin configurar</span>
+          <span class="app-status status-ok">Activa</span>
           <span class="app-arrow">→</span>
         </div>
       </a>
 
-      <a id="card2" class="app-card disabled" href="#" onclick="abrirApp(2, event)">
+      <a class="app-card" href="#" onclick="abrirApp(1,event)">
         <div class="app-card-top">
-          <div class="app-icon-wrap icon-verde"><span id="emoji2">🗂️</span></div>
-          <div class="app-name" id="nombre2">—</div>
-          <div class="app-desc" id="desc2">—</div>
+          <div class="app-icon-wrap icon-verde"><span id="emoji-1">🗂️</span></div>
+          <div class="app-name" id="nombre-1">Listas de Inventario</div>
+          <div class="app-desc" id="desc-1">Control de listas y conteo de inventario</div>
         </div>
         <div class="app-card-footer">
-          <span class="app-status status-off" id="status2">Sin configurar</span>
+          <span class="app-status status-ok">Activa</span>
           <span class="app-arrow">→</span>
         </div>
       </a>
     </div>
 
-    <!-- Acceso rápido -->
     <div class="section-label">Acceso rápido</div>
 
     <div class="quick-card">
-      <div class="quick-title">
-        <span class="quick-title-icon">⚡</span>
-        Abrir directamente
-      </div>
+      <div class="quick-title"><span>⚡</span> Abrir directamente</div>
       <div class="quick-btns">
-        <a id="btn-rapido-1" class="btn-abrir azul" href="#" onclick="abrirApp(1, event)"
-           style="opacity:0.4;pointer-events:none">
-          <span id="emoji-rapido-1">📦</span>
-          <span id="label-rapido-1">App 1</span>
+        <a class="btn-abrir azul" href="#" onclick="abrirApp(0,event)">
+          <span id="emoji-r-0">📦</span>
+          <span id="label-r-0">Control Sapito 3.0</span>
         </a>
-        <a id="btn-rapido-2" class="btn-abrir gris" href="#" onclick="abrirApp(2, event)"
-           style="opacity:0.4;pointer-events:none">
-          <span id="emoji-rapido-2">🗂️</span>
-          <span id="label-rapido-2">App 2</span>
+        <a class="btn-abrir gris" href="#" onclick="abrirApp(1,event)">
+          <span id="emoji-r-1">🗂️</span>
+          <span id="label-r-1">Listas de Inventario</span>
         </a>
       </div>
     </div>
@@ -507,10 +411,8 @@
     Algarrobo Connect &nbsp;·&nbsp; CasaIdeas Algarrobo
   </footer>
 
-  <!-- ══════════════════════════════════════════
-       PANEL LOGIN ADMIN
-  ══════════════════════════════════════════ -->
-  <div id="loginOverlay" class="overlay hidden" onclick="clickFueraOverlay(event,'loginOverlay')">
+  <!-- LOGIN -->
+  <div id="loginOverlay" class="overlay hidden" onclick="if(event.target===this)cerrarLogin()">
     <div class="sheet">
       <div class="sheet-handle"></div>
       <div class="sheet-header">
@@ -523,61 +425,64 @@
       <div class="login-body">
         <div class="login-icon">🛡️</div>
         <p class="login-info">Ingresa la contraseña de administrador para acceder al panel de configuración.</p>
-
         <div id="login-error" class="login-error hidden">Contraseña incorrecta. Intenta de nuevo.</div>
-
         <input type="password" class="field-input" id="login-pass"
-          placeholder="Contraseña"
-          style="width:100%"
-          onkeydown="if(event.key==='Enter') verificarPassword()"
-        />
-
-        <button class="btn-guardar" onclick="verificarPassword()" style="margin-top:4px">
-          Ingresar →
-        </button>
+          placeholder="Contraseña" style="width:100%"
+          onkeydown="if(event.key==='Enter')verificarPass()"/>
+        <button class="btn-guardar" onclick="verificarPass()">Ingresar →</button>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       PANEL ADMIN CONFIGURACIÓN
-  ══════════════════════════════════════════ -->
-  <div id="adminOverlay" class="overlay hidden" onclick="clickFueraOverlay(event,'adminOverlay')">
+  <!-- ADMIN -->
+  <div id="adminOverlay" class="overlay hidden" onclick="if(event.target===this)cerrarAdmin()">
     <div class="sheet">
       <div class="sheet-handle"></div>
       <div class="sheet-header">
         <div>
-          <div class="sheet-title">⚙️ Configurar apps</div>
-          <div class="sheet-sub">Los cambios se aplican para todos</div>
+          <div class="sheet-title">⚙️ Configuración</div>
+          <div class="sheet-sub">Personaliza nombres e íconos</div>
         </div>
         <button class="btn-cerrar" onclick="cerrarAdmin()">✕</button>
       </div>
       <div class="admin-body">
 
-        <!-- App 1 -->
+        <div class="admin-info">
+          ℹ️ Los <strong>links están fijos</strong> en la app y funcionan para todos. Aquí puedes personalizar el nombre e ícono que se muestra.
+        </div>
+
+        <!-- App 0 -->
         <div class="field-group">
-          <div class="field-label">App 1</div>
-          <div class="field-sublabel">Nombre, ícono y enlace</div>
+          <div class="field-label">App 1 — Control Sapito</div>
+          <div class="field-sublabel">Nombre e ícono visible</div>
           <div class="field-row">
-            <input type="text" class="field-input" id="cfg-nombre1" placeholder="Nombre de la app"/>
-            <input type="text" class="field-emoji" id="cfg-emoji1" placeholder="📦" maxlength="2"/>
+            <input type="text" class="field-input" id="cfg-nombre-0" placeholder="Nombre"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-0" maxlength="2" placeholder="📦"/>
           </div>
-          <input type="url" class="field-input" id="cfg-url1" placeholder="https://…"/>
-          <input type="text" class="field-input" id="cfg-desc1" placeholder="Descripción corta (opcional)"/>
+          <input type="text" class="field-input" id="cfg-desc-0" placeholder="Descripción corta"/>
+          <div class="url-fija">
+            <span class="url-fija-icono">🔗</span>
+            <span class="url-fija-texto">casaideas-algarrobo.github.io/Control-Sapito-3.0/</span>
+            <span class="url-fija-badge">ACTIVA</span>
+          </div>
         </div>
 
         <div class="divider"></div>
 
-        <!-- App 2 -->
+        <!-- App 1 -->
         <div class="field-group">
-          <div class="field-label">App 2</div>
-          <div class="field-sublabel">Nombre, ícono y enlace</div>
+          <div class="field-label">App 2 — Listas de Inventario</div>
+          <div class="field-sublabel">Nombre e ícono visible</div>
           <div class="field-row">
-            <input type="text" class="field-input" id="cfg-nombre2" placeholder="Nombre de la app"/>
-            <input type="text" class="field-emoji" id="cfg-emoji2" placeholder="🗂️" maxlength="2"/>
+            <input type="text" class="field-input" id="cfg-nombre-1" placeholder="Nombre"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-1" maxlength="2" placeholder="🗂️"/>
           </div>
-          <input type="url" class="field-input" id="cfg-url2" placeholder="https://…"/>
-          <input type="text" class="field-input" id="cfg-desc2" placeholder="Descripción corta (opcional)"/>
+          <input type="text" class="field-input" id="cfg-desc-1" placeholder="Descripción corta"/>
+          <div class="url-fija">
+            <span class="url-fija-icono">🔗</span>
+            <span class="url-fija-texto">casaideas-algarrobo.github.io/Control-Listas-Sapito-3.0/</span>
+            <span class="url-fija-badge">ACTIVA</span>
+          </div>
         </div>
 
         <div class="divider"></div>
@@ -586,161 +491,108 @@
         <div class="field-group">
           <div class="field-label">Cambiar contraseña admin</div>
           <div class="field-sublabel">Deja en blanco para mantener la actual</div>
-          <input type="password" class="field-input" id="cfg-pass-nueva" placeholder="Nueva contraseña"/>
-          <input type="password" class="field-input" id="cfg-pass-confirmar" placeholder="Confirmar contraseña"/>
+          <input type="password" class="field-input" id="cfg-pass-nueva" placeholder="Nueva contraseña (mín. 6 caracteres)"/>
+          <input type="password" class="field-input" id="cfg-pass-conf" placeholder="Confirmar nueva contraseña"/>
         </div>
 
-        <button class="btn-guardar" id="btn-guardar" onclick="guardarConfig()">✓ Guardar cambios para todos</button>
+        <button class="btn-guardar" onclick="guardarConfig()">✓ Guardar cambios</button>
         <button class="btn-logout" onclick="cerrarSesion()">🚪 Cerrar sesión</button>
+
       </div>
     </div>
   </div>
 
-  <!-- TOAST -->
   <div id="toast" class="toast hidden"></div>
 
   <script>
   'use strict';
 
-  // ─────────────────────────────────────────────
-  //  CONTRASEÑA (hasheada con btoa simple — no es
-  //  criptografía real, pero es suficiente para
-  //  proteger el panel de acceso casual)
-  //  Contraseña por defecto: algarrobo2024
-  // ─────────────────────────────────────────────
-  const PASS_KEY     = 'algarrobo_admin_pass';
-  const STORAGE_KEY  = 'algarrobo_connect_apps';   // clave shared storage
+  // ── APPS (URLs fijas, visibles para todos) ──────────────────────
+  const APPS_BASE = [
+    {
+      url:    'https://casaideas-algarrobo.github.io/Control-Sapito-3.0/',
+      nombre: 'Consulta Inventario Sapito 3.0',
+      emoji:  '📦',
+      desc:   'Consulta de stock e inventario en bodega casa'
+    },
+    {
+      url:    'https://casaideas-algarrobo.github.io/Control-Listas-Sapito-3.0/',
+      nombre: 'Control Listas Sapito 3.0',
+      emoji:  '🗂️',
+      desc:   'Control de listas de entrada y salidad de productos'
+    }
+  ];
 
-  // Hash simple reversible para ofuscación básica
+  // ── CONTRASEÑA (localStorage, por dispositivo del admin) ────────
+  const PASS_KEY  = 'ac_pass_hash';
+  const NAMES_KEY = 'ac_nombres';   // solo nombres/emojis/desc personalizados
+  const DEFAULT_PASS_HASH = btoa('algarrobo2024');
+
   function hashPass(p) { return btoa(unescape(encodeURIComponent(p))); }
+  function getPassHash() { return localStorage.getItem(PASS_KEY) || DEFAULT_PASS_HASH; }
 
-  function getPassHash() {
-    // Primero buscamos en shared storage (admin puede haberla cambiado)
-    return window._passHashCache || hashPass('algarrobo2024');
+  let sesion = false;
+
+  // ── NOMBRES PERSONALIZADOS (localStorage) ───────────────────────
+  function cargarNombres() {
+    try {
+      const raw = localStorage.getItem(NAMES_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch(e) { return null; }
+  }
+  function guardarNombres(data) {
+    try { localStorage.setItem(NAMES_KEY, JSON.stringify(data)); } catch(e) {}
   }
 
-  let sesionAbierta = false;
+  // ── ESTADO FINAL (base + personalizaciones) ──────────────────────
+  let apps = APPS_BASE.map(a => ({...a}));
 
-  // ─────────────────────────────────────────────
-  //  DEFAULTS
-  // ─────────────────────────────────────────────
-  const defaults = {
-    app1: { nombre: 'Control Sapito', emoji: '📦', url: '', desc: 'Consulta de stock e inventario en bodega' },
-    app2: { nombre: 'App 2',          emoji: '🗂️', url: '', desc: 'Configura el link desde el panel ⚙️' },
-  };
-
-  let estado = JSON.parse(JSON.stringify(defaults));
-
-  // ─────────────────────────────────────────────
-  //  SHARED STORAGE (persistencia global)
-  // ─────────────────────────────────────────────
-  async function cargarDesdeStorage() {
-    try {
-      // Cargar config de apps
-      const res = await window.storage.get(STORAGE_KEY, true);
-      if (res && res.value) {
-        estado = JSON.parse(res.value);
-      }
-    } catch(e) {
-      // No existe aún, usamos defaults
-    }
-
-    try {
-      // Cargar contraseña admin
-      const rp = await window.storage.get(PASS_KEY, true);
-      if (rp && rp.value) {
-        window._passHashCache = rp.value;
-      }
-    } catch(e) {}
-
-    renderizar();
-    document.getElementById('apps-cargando').style.display = 'none';
-    document.getElementById('apps-grid').style.display = 'grid';
-  }
-
-  async function guardarEnStorage() {
-    try {
-      await window.storage.set(STORAGE_KEY, JSON.stringify(estado), true);
-    } catch(e) {
-      mostrarToast('⚠️ Error al guardar en servidor');
-    }
-  }
-
-  async function guardarPassEnStorage(hash) {
-    try {
-      await window.storage.set(PASS_KEY, hash, true);
-      window._passHashCache = hash;
-    } catch(e) {}
-  }
-
-  // ─────────────────────────────────────────────
-  //  RENDERIZADO
-  // ─────────────────────────────────────────────
-  function renderizar() {
-    ['1','2'].forEach(n => {
-      const app = estado['app' + n];
-      if (!app) return;
-
-      document.getElementById('emoji'  + n).textContent = app.emoji  || '📦';
-      document.getElementById('nombre' + n).textContent = app.nombre || 'App ' + n;
-
-      if (app.url) {
-        document.getElementById('desc'   + n).textContent = app.desc || app.nombre;
-        document.getElementById('status' + n).textContent = 'Activa';
-        document.getElementById('status' + n).className   = 'app-status status-ok';
-        document.getElementById('card'   + n).classList.remove('disabled');
-      } else {
-        document.getElementById('desc'   + n).textContent = 'Configura el link desde el panel ⚙️';
-        document.getElementById('status' + n).textContent = 'Sin configurar';
-        document.getElementById('status' + n).className   = 'app-status status-off';
-        document.getElementById('card'   + n).classList.add('disabled');
-      }
-
-      document.getElementById('emoji-rapido-' + n).textContent = app.emoji  || '📦';
-      document.getElementById('label-rapido-' + n).textContent = app.nombre || 'App ' + n;
-
-      const btnR = document.getElementById('btn-rapido-' + n);
-      if (app.url) {
-        btnR.style.opacity       = '';
-        btnR.style.pointerEvents = '';
-      } else {
-        btnR.style.opacity       = '0.4';
-        btnR.style.pointerEvents = 'none';
+  function aplicarPersonalizaciones() {
+    const custom = cargarNombres();
+    if (!custom) return;
+    apps.forEach((app, i) => {
+      if (custom[i]) {
+        if (custom[i].nombre) app.nombre = custom[i].nombre;
+        if (custom[i].emoji)  app.emoji  = custom[i].emoji;
+        if (custom[i].desc)   app.desc   = custom[i].desc;
       }
     });
   }
 
-  // ─────────────────────────────────────────────
-  //  ABRIR APP
-  // ─────────────────────────────────────────────
-  function abrirApp(num, e) {
-    e.preventDefault();
-    const app = estado['app' + num];
-    if (!app || !app.url) { mostrarToast('⚙️ Configura el link primero'); return; }
-    window.open(app.url, '_blank');
+  // ── RENDER ───────────────────────────────────────────────────────
+  function renderizar() {
+    apps.forEach((app, i) => {
+      document.getElementById('emoji-'  + i).textContent = app.emoji;
+      document.getElementById('nombre-' + i).textContent = app.nombre;
+      document.getElementById('desc-'   + i).textContent = app.desc;
+      document.getElementById('emoji-r-' + i).textContent = app.emoji;
+      document.getElementById('label-r-' + i).textContent = app.nombre;
+    });
   }
 
-  // ─────────────────────────────────────────────
-  //  LOGIN
-  // ─────────────────────────────────────────────
+  // ── ABRIR APP ────────────────────────────────────────────────────
+  function abrirApp(i, e) {
+    e.preventDefault();
+    window.open(apps[i].url, '_blank');
+  }
+
+  // ── LOGIN ────────────────────────────────────────────────────────
   function abrirLogin() {
-    if (sesionAbierta) { abrirAdmin(); return; }
+    if (sesion) { abrirAdmin(); return; }
     document.getElementById('login-pass').value = '';
     document.getElementById('login-error').classList.add('hidden');
     document.getElementById('loginOverlay').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     setTimeout(() => document.getElementById('login-pass').focus(), 350);
   }
-
   function cerrarLogin() {
     document.getElementById('loginOverlay').classList.add('hidden');
     document.body.style.overflow = '';
   }
-
-  function verificarPassword() {
-    const pass = document.getElementById('login-pass').value;
-    if (hashPass(pass) === getPassHash()) {
-      sesionAbierta = true;
+  function verificarPass() {
+    const p = document.getElementById('login-pass').value;
+    if (hashPass(p) === getPassHash()) {
+      sesion = true;
       cerrarLogin();
       abrirAdmin();
     } else {
@@ -750,90 +602,59 @@
     }
   }
 
-  // ─────────────────────────────────────────────
-  //  ADMIN
-  // ─────────────────────────────────────────────
+  // ── ADMIN ────────────────────────────────────────────────────────
   function abrirAdmin() {
-    ['1','2'].forEach(n => {
-      const app = estado['app' + n] || {};
-      document.getElementById('cfg-nombre' + n).value = app.nombre || '';
-      document.getElementById('cfg-emoji'  + n).value = app.emoji  || '';
-      document.getElementById('cfg-url'    + n).value = app.url    || '';
-      document.getElementById('cfg-desc'   + n).value = app.desc   || '';
+    apps.forEach((app, i) => {
+      document.getElementById('cfg-nombre-' + i).value = app.nombre;
+      document.getElementById('cfg-emoji-'  + i).value = app.emoji;
+      document.getElementById('cfg-desc-'   + i).value = app.desc;
     });
-    document.getElementById('cfg-pass-nueva').value      = '';
-    document.getElementById('cfg-pass-confirmar').value  = '';
+    document.getElementById('cfg-pass-nueva').value = '';
+    document.getElementById('cfg-pass-conf').value  = '';
     document.getElementById('adminOverlay').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
-
   function cerrarAdmin() {
     document.getElementById('adminOverlay').classList.add('hidden');
     document.body.style.overflow = '';
   }
-
   function cerrarSesion() {
-    sesionAbierta = false;
+    sesion = false;
     cerrarAdmin();
     mostrarToast('🔒 Sesión cerrada');
   }
 
-  async function guardarConfig() {
-    const btn = document.getElementById('btn-guardar');
-    btn.disabled = true;
-    btn.textContent = 'Guardando…';
-
-    const n1 = document.getElementById('cfg-nombre1').value.trim();
-    const n2 = document.getElementById('cfg-nombre2').value.trim();
-    const u1 = document.getElementById('cfg-url1').value.trim();
-    const u2 = document.getElementById('cfg-url2').value.trim();
-    const d1 = document.getElementById('cfg-desc1').value.trim();
-    const d2 = document.getElementById('cfg-desc2').value.trim();
-
-    if (u1 && !esUrlValida(u1)) { mostrarToast('⚠️ URL de App 1 no válida'); resetBtn(); return; }
-    if (u2 && !esUrlValida(u2)) { mostrarToast('⚠️ URL de App 2 no válida'); resetBtn(); return; }
-
-    // Cambio de contraseña
-    const pNueva    = document.getElementById('cfg-pass-nueva').value;
-    const pConfirma = document.getElementById('cfg-pass-confirmar').value;
-    if (pNueva) {
-      if (pNueva !== pConfirma) { mostrarToast('⚠️ Las contraseñas no coinciden'); resetBtn(); return; }
-      if (pNueva.length < 6)    { mostrarToast('⚠️ Mínimo 6 caracteres'); resetBtn(); return; }
-      await guardarPassEnStorage(hashPass(pNueva));
+  function guardarConfig() {
+    // Contraseña
+    const pN = document.getElementById('cfg-pass-nueva').value;
+    const pC = document.getElementById('cfg-pass-conf').value;
+    if (pN) {
+      if (pN !== pC)       { mostrarToast('⚠️ Las contraseñas no coinciden'); return; }
+      if (pN.length < 6)   { mostrarToast('⚠️ Mínimo 6 caracteres'); return; }
+      localStorage.setItem(PASS_KEY, hashPass(pN));
     }
 
-    estado.app1 = { nombre: n1 || 'App 1', emoji: document.getElementById('cfg-emoji1').value || '📦', url: u1, desc: d1 || n1 || 'App 1' };
-    estado.app2 = { nombre: n2 || 'App 2', emoji: document.getElementById('cfg-emoji2').value || '🗂️', url: u2, desc: d2 || n2 || 'App 2' };
+    // Guardar nombres/emojis
+    const custom = apps.map((_, i) => ({
+      nombre: document.getElementById('cfg-nombre-' + i).value.trim(),
+      emoji:  document.getElementById('cfg-emoji-'  + i).value.trim(),
+      desc:   document.getElementById('cfg-desc-'   + i).value.trim(),
+    }));
+    guardarNombres(custom);
 
-    await guardarEnStorage();
+    // Aplicar al estado
+    apps.forEach((app, i) => {
+      if (custom[i].nombre) app.nombre = custom[i].nombre;
+      if (custom[i].emoji)  app.emoji  = custom[i].emoji;
+      if (custom[i].desc)   app.desc   = custom[i].desc;
+    });
+
     renderizar();
     cerrarAdmin();
-    mostrarToast('✅ Cambios guardados para todos');
-    resetBtn();
-
-    function resetBtn() {
-      btn.disabled = false;
-      btn.textContent = '✓ Guardar cambios para todos';
-    }
+    mostrarToast('✅ Guardado correctamente');
   }
 
-  function esUrlValida(url) {
-    try { new URL(url); return true; } catch(e) { return false; }
-  }
-
-  // ─────────────────────────────────────────────
-  //  CERRAR AL TOCAR FUERA
-  // ─────────────────────────────────────────────
-  function clickFueraOverlay(e, id) {
-    if (e.target === document.getElementById(id)) {
-      if (id === 'loginOverlay') cerrarLogin();
-      else cerrarAdmin();
-    }
-  }
-
-  // ─────────────────────────────────────────────
-  //  TOAST
-  // ─────────────────────────────────────────────
+  // ── TOAST ─────────────────────────────────────────────────────────
   let toastTimer;
   function mostrarToast(msg) {
     const t = document.getElementById('toast');
@@ -843,10 +664,9 @@
     toastTimer = setTimeout(() => t.classList.add('hidden'), 2800);
   }
 
-  // ─────────────────────────────────────────────
-  //  INIT
-  // ─────────────────────────────────────────────
-  cargarDesdeStorage();
+  // ── INIT ──────────────────────────────────────────────────────────
+  aplicarPersonalizaciones();
+  renderizar();
   </script>
 </body>
 </html>
