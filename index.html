@@ -84,9 +84,7 @@
     .header-loc {
       font-size: 11px; color: var(--gris-500); margin-top: 3px; font-weight: 500;
     }
-    .header-actions {
-      flex-shrink: 0;
-    }
+    .header-actions { flex-shrink: 0; }
     .btn-admin {
       background: var(--gris-100); border: 1.5px solid var(--gris-200);
       border-radius: 10px; padding: 8px 14px;
@@ -178,28 +176,20 @@
     .app-card:active { transform: scale(0.97); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
     .app-card.disabled { opacity: 0.45; pointer-events: none; }
 
-    .app-card-top {
-      padding: 20px 18px 16px;
-      flex: 1;
-    }
+    .app-card-top { padding: 20px 18px 16px; flex: 1; }
     .app-icon-wrap {
       width: 48px; height: 48px;
       border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       font-size: 24px; margin-bottom: 14px;
     }
-    .icon-azul  { background: var(--azul-50); }
-    .icon-verde { background: var(--verde-bg); }
+    .icon-azul    { background: var(--azul-50); }
+    .icon-verde   { background: var(--verde-bg); }
     .icon-naranja { background: #fff7ed; }
     .icon-morado  { background: #f5f3ff; }
 
-    .app-name {
-      font-size: 15px; font-weight: 800; color: var(--gris-900);
-      line-height: 1.2; margin-bottom: 4px;
-    }
-    .app-desc {
-      font-size: 11px; color: var(--gris-500); line-height: 1.4;
-    }
+    .app-name { font-size: 15px; font-weight: 800; color: var(--gris-900); line-height: 1.2; margin-bottom: 4px; }
+    .app-desc { font-size: 11px; color: var(--gris-500); line-height: 1.4; }
 
     .app-card-footer {
       border-top: 1px solid var(--gris-100);
@@ -214,14 +204,11 @@
       content: ''; width: 6px; height: 6px;
       border-radius: 50%; flex-shrink: 0;
     }
-    .status-ok::before   { background: var(--verde); }
-    .status-ok   { color: var(--verde); }
-    .status-off::before  { background: var(--gris-500); }
-    .status-off  { color: var(--gris-500); }
-
-    .app-arrow {
-      font-size: 16px; color: var(--azul-400);
-    }
+    .status-ok::before  { background: var(--verde); }
+    .status-ok          { color: var(--verde); }
+    .status-off::before { background: var(--gris-500); }
+    .status-off         { color: var(--gris-500); }
+    .app-arrow { font-size: 16px; color: var(--azul-400); }
 
     /* ── BOTÓN FULL WIDTH ── */
     .btn-abrir {
@@ -263,8 +250,8 @@
     .quick-title-icon { font-size: 16px; }
     .quick-btns { display: flex; flex-direction: column; gap: 10px; }
 
-    /* ── PANEL ADMIN (oculto por defecto) ── */
-    .admin-overlay {
+    /* ── OVERLAY GENÉRICO ── */
+    .overlay {
       position: fixed; inset: 0;
       background: rgba(17,24,39,0.6);
       z-index: 100;
@@ -272,10 +259,10 @@
       padding-bottom: env(safe-area-inset-bottom);
       animation: fadeIn 0.2s ease;
     }
-    .admin-overlay.hidden { display: none; }
+    .overlay.hidden { display: none; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    .admin-sheet {
+    .sheet {
       background: var(--blanco);
       border-radius: 22px 22px 0 0;
       width: 100%; max-height: 90vh;
@@ -289,18 +276,18 @@
       to   { transform: translateY(0);    opacity: 1; }
     }
 
-    .admin-handle {
+    .sheet-handle {
       width: 36px; height: 4px; border-radius: 2px;
       background: var(--gris-200); margin: 14px auto 0;
     }
-    .admin-header {
+    .sheet-header {
       padding: 18px 22px 14px;
       border-bottom: 1px solid var(--gris-100);
       display: flex; align-items: center; justify-content: space-between;
     }
-    .admin-title { font-size: 17px; font-weight: 900; color: var(--gris-900); }
-    .admin-sub   { font-size: 12px; color: var(--gris-500); margin-top: 2px; }
-    .btn-cerrar-admin {
+    .sheet-title { font-size: 17px; font-weight: 900; color: var(--gris-900); }
+    .sheet-sub   { font-size: 12px; color: var(--gris-500); margin-top: 2px; }
+    .btn-cerrar {
       background: var(--gris-100); border: 1px solid var(--gris-200);
       border-radius: 50%; width: 32px; height: 32px;
       font-size: 14px; cursor: pointer; display: flex;
@@ -308,6 +295,26 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* ── LOGIN PANEL ── */
+    .login-body {
+      padding: 28px 22px;
+      display: flex; flex-direction: column; gap: 16px;
+      align-items: center;
+    }
+    .login-icon {
+      font-size: 48px; margin-bottom: 4px;
+    }
+    .login-info {
+      font-size: 13px; color: var(--gris-500); text-align: center; line-height: 1.5;
+    }
+    .login-error {
+      font-size: 12px; color: var(--rojo); font-weight: 600;
+      background: var(--rojo-bg); border-radius: 8px;
+      padding: 8px 14px; width: 100%; text-align: center;
+    }
+    .login-error.hidden { display: none; }
+
+    /* ── ADMIN PANEL ── */
     .admin-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 18px; }
 
     .field-group { display: flex; flex-direction: column; gap: 6px; }
@@ -343,9 +350,7 @@
     }
     .field-emoji:focus { border-color: var(--azul-400); }
 
-    .divider {
-      height: 1px; background: var(--gris-100); margin: 4px 0;
-    }
+    .divider { height: 1px; background: var(--gris-100); margin: 4px 0; }
 
     .btn-guardar {
       padding: 15px 20px;
@@ -357,7 +362,19 @@
       transition: all 0.15s; width: 100%;
     }
     .btn-guardar:active { transform: scale(0.98); opacity: 0.9; }
+    .btn-guardar:disabled { opacity: 0.6; cursor: not-allowed; }
 
+    .btn-logout {
+      padding: 12px 20px;
+      background: var(--gris-100); border: 1.5px solid var(--gris-200);
+      color: var(--gris-700); border-radius: 13px;
+      font-size: 14px; font-weight: 700;
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s; width: 100%;
+    }
+    .btn-logout:active { background: var(--rojo-bg); border-color: var(--rojo); color: var(--rojo); }
+
+    /* ── TOAST ── */
     .toast {
       position: fixed; bottom: calc(24px + env(safe-area-inset-bottom));
       left: 50%; transform: translateX(-50%);
@@ -372,6 +389,12 @@
     @keyframes toastIn {
       from { opacity: 0; transform: translateX(-50%) translateY(10px); }
       to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    /* ── CARGANDO ── */
+    .cargando {
+      text-align: center; color: var(--gris-500);
+      font-size: 13px; padding: 12px 0;
     }
 
     /* ── FOOTER ── */
@@ -405,7 +428,7 @@
         <div class="header-loc">📍 Panel de acceso a aplicaciones</div>
       </div>
       <div class="header-actions">
-        <button class="btn-admin" onclick="abrirAdmin()">⚙️ Config</button>
+        <button class="btn-admin" onclick="abrirLogin()">⚙️ Config</button>
       </div>
     </div>
   </header>
@@ -428,39 +451,35 @@
     <!-- Apps grid -->
     <div class="section-label">Aplicaciones</div>
 
-    <div class="apps-grid">
-      <!-- App 1 -->
-      <a id="card1" class="app-card" href="#" onclick="abrirApp(1, event)">
+    <div id="apps-cargando" class="cargando">Cargando apps…</div>
+
+    <div class="apps-grid" id="apps-grid" style="display:none">
+      <a id="card1" class="app-card disabled" href="#" onclick="abrirApp(1, event)">
         <div class="app-card-top">
-          <div class="app-icon-wrap icon-azul" id="icon1">
-            <span id="emoji1">📦</span>
-          </div>
-          <div class="app-name" id="nombre1">Consulta Inventario Sapito 3.0</div>
-          <div class="app-desc" id="desc1">Consulta de stock e inventario en bodega C</div>
+          <div class="app-icon-wrap icon-azul"><span id="emoji1">📦</span></div>
+          <div class="app-name" id="nombre1">—</div>
+          <div class="app-desc" id="desc1">—</div>
         </div>
         <div class="app-card-footer">
-          <span class="app-status status-ok" id="status1">Activa</span>
+          <span class="app-status status-off" id="status1">Sin configurar</span>
           <span class="app-arrow">→</span>
         </div>
       </a>
 
-      <!-- App 2 -->
-      <a id="card2" class="app-card" href="#" onclick="abrirApp(2, event)">
+      <a id="card2" class="app-card disabled" href="#" onclick="abrirApp(2, event)">
         <div class="app-card-top">
-          <div class="app-icon-wrap icon-verde" id="icon2">
-            <span id="emoji2">🗂️</span>
-          </div>
-          <div class="app-name" id="nombre2">Control Listas Sapito 3.0</div>
-          <div class="app-desc" id="desc2">Crea listas de producto de entrada o salida de bodega ⚙️</div>
+          <div class="app-icon-wrap icon-verde"><span id="emoji2">🗂️</span></div>
+          <div class="app-name" id="nombre2">—</div>
+          <div class="app-desc" id="desc2">—</div>
         </div>
         <div class="app-card-footer">
-          <span class="app-status status-off" id="status2">Activa</span>
+          <span class="app-status status-off" id="status2">Sin configurar</span>
           <span class="app-arrow">→</span>
         </div>
       </a>
     </div>
 
-    <!-- Acceso rápido: botones full width -->
+    <!-- Acceso rápido -->
     <div class="section-label">Acceso rápido</div>
 
     <div class="quick-card">
@@ -469,13 +488,15 @@
         Abrir directamente
       </div>
       <div class="quick-btns">
-        <a id="btn-rapido-1" class="btn-abrir azul" href="#" onclick="abrirApp(1, event)">
+        <a id="btn-rapido-1" class="btn-abrir azul" href="#" onclick="abrirApp(1, event)"
+           style="opacity:0.4;pointer-events:none">
           <span id="emoji-rapido-1">📦</span>
-          <span id="label-rapido-1">Consulta Inventario</span>
+          <span id="label-rapido-1">App 1</span>
         </a>
-        <a id="btn-rapido-2" class="btn-abrir gris" href="#" onclick="abrirApp(2, event)">
+        <a id="btn-rapido-2" class="btn-abrir gris" href="#" onclick="abrirApp(2, event)"
+           style="opacity:0.4;pointer-events:none">
           <span id="emoji-rapido-2">🗂️</span>
-          <span id="label-rapido-2">Crea una lista</span>
+          <span id="label-rapido-2">App 2</span>
         </a>
       </div>
     </div>
@@ -486,32 +507,63 @@
     Algarrobo Connect &nbsp;·&nbsp; CasaIdeas Algarrobo
   </footer>
 
-  <!-- PANEL ADMIN -->
-  <div id="adminOverlay" class="admin-overlay hidden" onclick="clickFueraAdmin(event)">
-    <div class="admin-sheet" id="adminSheet">
-      <div class="admin-handle"></div>
-      <div class="admin-header">
+  <!-- ══════════════════════════════════════════
+       PANEL LOGIN ADMIN
+  ══════════════════════════════════════════ -->
+  <div id="loginOverlay" class="overlay hidden" onclick="clickFueraOverlay(event,'loginOverlay')">
+    <div class="sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-header">
         <div>
-          <div class="admin-title">⚙️ Configurar apps</div>
-          <div class="admin-sub">Edita nombre, ícono y enlace de cada app</div>
+          <div class="sheet-title">🔒 Acceso administrador</div>
+          <div class="sheet-sub">Solo personal autorizado</div>
         </div>
-        <button class="btn-cerrar-admin" onclick="cerrarAdmin()">✕</button>
+        <button class="btn-cerrar" onclick="cerrarLogin()">✕</button>
+      </div>
+      <div class="login-body">
+        <div class="login-icon">🛡️</div>
+        <p class="login-info">Ingresa la contraseña de administrador para acceder al panel de configuración.</p>
+
+        <div id="login-error" class="login-error hidden">Contraseña incorrecta. Intenta de nuevo.</div>
+
+        <input type="password" class="field-input" id="login-pass"
+          placeholder="Contraseña"
+          style="width:100%"
+          onkeydown="if(event.key==='Enter') verificarPassword()"
+        />
+
+        <button class="btn-guardar" onclick="verificarPassword()" style="margin-top:4px">
+          Ingresar →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PANEL ADMIN CONFIGURACIÓN
+  ══════════════════════════════════════════ -->
+  <div id="adminOverlay" class="overlay hidden" onclick="clickFueraOverlay(event,'adminOverlay')">
+    <div class="sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-header">
+        <div>
+          <div class="sheet-title">⚙️ Configurar apps</div>
+          <div class="sheet-sub">Los cambios se aplican para todos</div>
+        </div>
+        <button class="btn-cerrar" onclick="cerrarAdmin()">✕</button>
       </div>
       <div class="admin-body">
 
         <!-- App 1 -->
         <div class="field-group">
           <div class="field-label">App 1</div>
-          <div class="field-sublabel">Nombre e ícono</div>
+          <div class="field-sublabel">Nombre, ícono y enlace</div>
           <div class="field-row">
-            <input type="text" class="field-input" id="cfg-nombre1"
-              placeholder="Nombre de la app" value="Control Sapito"/>
-            <input type="text" class="field-emoji" id="cfg-emoji1"
-              placeholder="📦" value="📦" maxlength="2"/>
+            <input type="text" class="field-input" id="cfg-nombre1" placeholder="Nombre de la app"/>
+            <input type="text" class="field-emoji" id="cfg-emoji1" placeholder="📦" maxlength="2"/>
           </div>
-          <input type="url" class="field-input" id="cfg-url1"
-            placeholder="https://…"
-            value=""/>
+          <input type="url" class="field-input" id="cfg-url1" placeholder="https://…"/>
+          <input type="text" class="field-input" id="cfg-desc1" placeholder="Descripción corta (opcional)"/>
         </div>
 
         <div class="divider"></div>
@@ -519,20 +571,27 @@
         <!-- App 2 -->
         <div class="field-group">
           <div class="field-label">App 2</div>
-          <div class="field-sublabel">Nombre e ícono</div>
+          <div class="field-sublabel">Nombre, ícono y enlace</div>
           <div class="field-row">
-            <input type="text" class="field-input" id="cfg-nombre2"
-              placeholder="Nombre de la app" value="App 2"/>
-            <input type="text" class="field-emoji" id="cfg-emoji2"
-              placeholder="🗂️" value="🗂️" maxlength="2"/>
+            <input type="text" class="field-input" id="cfg-nombre2" placeholder="Nombre de la app"/>
+            <input type="text" class="field-emoji" id="cfg-emoji2" placeholder="🗂️" maxlength="2"/>
           </div>
-          <input type="url" class="field-input" id="cfg-url2"
-            placeholder="https://…"
-            value=""/>
+          <input type="url" class="field-input" id="cfg-url2" placeholder="https://…"/>
+          <input type="text" class="field-input" id="cfg-desc2" placeholder="Descripción corta (opcional)"/>
         </div>
 
-        <button class="btn-guardar" onclick="guardarConfig()">✓ Guardar cambios</button>
+        <div class="divider"></div>
 
+        <!-- Cambiar contraseña -->
+        <div class="field-group">
+          <div class="field-label">Cambiar contraseña admin</div>
+          <div class="field-sublabel">Deja en blanco para mantener la actual</div>
+          <input type="password" class="field-input" id="cfg-pass-nueva" placeholder="Nueva contraseña"/>
+          <input type="password" class="field-input" id="cfg-pass-confirmar" placeholder="Confirmar contraseña"/>
+        </div>
+
+        <button class="btn-guardar" id="btn-guardar" onclick="guardarConfig()">✓ Guardar cambios para todos</button>
+        <button class="btn-logout" onclick="cerrarSesion()">🚪 Cerrar sesión</button>
       </div>
     </div>
   </div>
@@ -544,27 +603,75 @@
   'use strict';
 
   // ─────────────────────────────────────────────
-  //  ESTADO — guardado en localStorage
+  //  CONTRASEÑA (hasheada con btoa simple — no es
+  //  criptografía real, pero es suficiente para
+  //  proteger el panel de acceso casual)
+  //  Contraseña por defecto: algarrobo2024
   // ─────────────────────────────────────────────
-  const STORAGE_KEY = 'algarrobo_connect_v1';
+  const PASS_KEY     = 'algarrobo_admin_pass';
+  const STORAGE_KEY  = 'algarrobo_connect_apps';   // clave shared storage
 
+  // Hash simple reversible para ofuscación básica
+  function hashPass(p) { return btoa(unescape(encodeURIComponent(p))); }
+
+  function getPassHash() {
+    // Primero buscamos en shared storage (admin puede haberla cambiado)
+    return window._passHashCache || hashPass('algarrobo2024');
+  }
+
+  let sesionAbierta = false;
+
+  // ─────────────────────────────────────────────
+  //  DEFAULTS
+  // ─────────────────────────────────────────────
   const defaults = {
     app1: { nombre: 'Control Sapito', emoji: '📦', url: '', desc: 'Consulta de stock e inventario en bodega' },
     app2: { nombre: 'App 2',          emoji: '🗂️', url: '', desc: 'Configura el link desde el panel ⚙️' },
   };
 
-  function cargarEstado() {
+  let estado = JSON.parse(JSON.stringify(defaults));
+
+  // ─────────────────────────────────────────────
+  //  SHARED STORAGE (persistencia global)
+  // ─────────────────────────────────────────────
+  async function cargarDesdeStorage() {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : { ...defaults };
-    } catch(e) { return { ...defaults }; }
+      // Cargar config de apps
+      const res = await window.storage.get(STORAGE_KEY, true);
+      if (res && res.value) {
+        estado = JSON.parse(res.value);
+      }
+    } catch(e) {
+      // No existe aún, usamos defaults
+    }
+
+    try {
+      // Cargar contraseña admin
+      const rp = await window.storage.get(PASS_KEY, true);
+      if (rp && rp.value) {
+        window._passHashCache = rp.value;
+      }
+    } catch(e) {}
+
+    renderizar();
+    document.getElementById('apps-cargando').style.display = 'none';
+    document.getElementById('apps-grid').style.display = 'grid';
   }
 
-  function guardarEstado(estado) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(estado)); } catch(e) {}
+  async function guardarEnStorage() {
+    try {
+      await window.storage.set(STORAGE_KEY, JSON.stringify(estado), true);
+    } catch(e) {
+      mostrarToast('⚠️ Error al guardar en servidor');
+    }
   }
 
-  let estado = cargarEstado();
+  async function guardarPassEnStorage(hash) {
+    try {
+      await window.storage.set(PASS_KEY, hash, true);
+      window._passHashCache = hash;
+    } catch(e) {}
+  }
 
   // ─────────────────────────────────────────────
   //  RENDERIZADO
@@ -572,12 +679,11 @@
   function renderizar() {
     ['1','2'].forEach(n => {
       const app = estado['app' + n];
+      if (!app) return;
 
-      // Card
-      document.getElementById('emoji'  + n).textContent = app.emoji;
-      document.getElementById('nombre' + n).textContent = app.nombre;
+      document.getElementById('emoji'  + n).textContent = app.emoji  || '📦';
+      document.getElementById('nombre' + n).textContent = app.nombre || 'App ' + n;
 
-      // Desc y estado
       if (app.url) {
         document.getElementById('desc'   + n).textContent = app.desc || app.nombre;
         document.getElementById('status' + n).textContent = 'Activa';
@@ -590,17 +696,16 @@
         document.getElementById('card'   + n).classList.add('disabled');
       }
 
-      // Botones rápidos
-      document.getElementById('emoji-rapido-' + n).textContent = app.emoji;
-      document.getElementById('label-rapido-' + n).textContent = app.nombre;
+      document.getElementById('emoji-rapido-' + n).textContent = app.emoji  || '📦';
+      document.getElementById('label-rapido-' + n).textContent = app.nombre || 'App ' + n;
 
+      const btnR = document.getElementById('btn-rapido-' + n);
       if (app.url) {
-        document.getElementById('btn-rapido-' + n).classList.remove('disabled');
-        document.getElementById('btn-rapido-' + n).style.opacity = '';
-        document.getElementById('btn-rapido-' + n).style.pointerEvents = '';
+        btnR.style.opacity       = '';
+        btnR.style.pointerEvents = '';
       } else {
-        document.getElementById('btn-rapido-' + n).style.opacity = '0.4';
-        document.getElementById('btn-rapido-' + n).style.pointerEvents = 'none';
+        btnR.style.opacity       = '0.4';
+        btnR.style.pointerEvents = 'none';
       }
     });
   }
@@ -611,24 +716,53 @@
   function abrirApp(num, e) {
     e.preventDefault();
     const app = estado['app' + num];
-    if (!app.url) {
-      mostrarToast('⚙️ Configura el link primero');
-      return;
-    }
+    if (!app || !app.url) { mostrarToast('⚙️ Configura el link primero'); return; }
     window.open(app.url, '_blank');
   }
 
   // ─────────────────────────────────────────────
-  //  PANEL ADMIN
+  //  LOGIN
+  // ─────────────────────────────────────────────
+  function abrirLogin() {
+    if (sesionAbierta) { abrirAdmin(); return; }
+    document.getElementById('login-pass').value = '';
+    document.getElementById('login-error').classList.add('hidden');
+    document.getElementById('loginOverlay').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('login-pass').focus(), 350);
+  }
+
+  function cerrarLogin() {
+    document.getElementById('loginOverlay').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function verificarPassword() {
+    const pass = document.getElementById('login-pass').value;
+    if (hashPass(pass) === getPassHash()) {
+      sesionAbierta = true;
+      cerrarLogin();
+      abrirAdmin();
+    } else {
+      document.getElementById('login-error').classList.remove('hidden');
+      document.getElementById('login-pass').value = '';
+      document.getElementById('login-pass').focus();
+    }
+  }
+
+  // ─────────────────────────────────────────────
+  //  ADMIN
   // ─────────────────────────────────────────────
   function abrirAdmin() {
-    // Rellenar campos con estado actual
     ['1','2'].forEach(n => {
-      const app = estado['app' + n];
-      document.getElementById('cfg-nombre' + n).value = app.nombre;
-      document.getElementById('cfg-emoji'  + n).value = app.emoji;
-      document.getElementById('cfg-url'    + n).value = app.url;
+      const app = estado['app' + n] || {};
+      document.getElementById('cfg-nombre' + n).value = app.nombre || '';
+      document.getElementById('cfg-emoji'  + n).value = app.emoji  || '';
+      document.getElementById('cfg-url'    + n).value = app.url    || '';
+      document.getElementById('cfg-desc'   + n).value = app.desc   || '';
     });
+    document.getElementById('cfg-pass-nueva').value      = '';
+    document.getElementById('cfg-pass-confirmar').value  = '';
     document.getElementById('adminOverlay').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
@@ -638,41 +772,63 @@
     document.body.style.overflow = '';
   }
 
-  function clickFueraAdmin(e) {
-    if (e.target === document.getElementById('adminOverlay')) cerrarAdmin();
+  function cerrarSesion() {
+    sesionAbierta = false;
+    cerrarAdmin();
+    mostrarToast('🔒 Sesión cerrada');
   }
 
-  function guardarConfig() {
+  async function guardarConfig() {
+    const btn = document.getElementById('btn-guardar');
+    btn.disabled = true;
+    btn.textContent = 'Guardando…';
+
     const n1 = document.getElementById('cfg-nombre1').value.trim();
     const n2 = document.getElementById('cfg-nombre2').value.trim();
     const u1 = document.getElementById('cfg-url1').value.trim();
     const u2 = document.getElementById('cfg-url2').value.trim();
+    const d1 = document.getElementById('cfg-desc1').value.trim();
+    const d2 = document.getElementById('cfg-desc2').value.trim();
 
-    // Validar URLs si están rellenas
-    if (u1 && !esUrlValida(u1)) { mostrarToast('⚠️ URL de App 1 no válida'); return; }
-    if (u2 && !esUrlValida(u2)) { mostrarToast('⚠️ URL de App 2 no válida'); return; }
+    if (u1 && !esUrlValida(u1)) { mostrarToast('⚠️ URL de App 1 no válida'); resetBtn(); return; }
+    if (u2 && !esUrlValida(u2)) { mostrarToast('⚠️ URL de App 2 no válida'); resetBtn(); return; }
 
-    estado.app1 = {
-      nombre: n1 || 'App 1',
-      emoji:  document.getElementById('cfg-emoji1').value || '📦',
-      url:    u1,
-      desc:   n1 || 'App 1',
-    };
-    estado.app2 = {
-      nombre: n2 || 'App 2',
-      emoji:  document.getElementById('cfg-emoji2').value || '🗂️',
-      url:    u2,
-      desc:   n2 || 'App 2',
-    };
+    // Cambio de contraseña
+    const pNueva    = document.getElementById('cfg-pass-nueva').value;
+    const pConfirma = document.getElementById('cfg-pass-confirmar').value;
+    if (pNueva) {
+      if (pNueva !== pConfirma) { mostrarToast('⚠️ Las contraseñas no coinciden'); resetBtn(); return; }
+      if (pNueva.length < 6)    { mostrarToast('⚠️ Mínimo 6 caracteres'); resetBtn(); return; }
+      await guardarPassEnStorage(hashPass(pNueva));
+    }
 
-    guardarEstado(estado);
+    estado.app1 = { nombre: n1 || 'App 1', emoji: document.getElementById('cfg-emoji1').value || '📦', url: u1, desc: d1 || n1 || 'App 1' };
+    estado.app2 = { nombre: n2 || 'App 2', emoji: document.getElementById('cfg-emoji2').value || '🗂️', url: u2, desc: d2 || n2 || 'App 2' };
+
+    await guardarEnStorage();
     renderizar();
     cerrarAdmin();
-    mostrarToast('✅ Guardado correctamente');
+    mostrarToast('✅ Cambios guardados para todos');
+    resetBtn();
+
+    function resetBtn() {
+      btn.disabled = false;
+      btn.textContent = '✓ Guardar cambios para todos';
+    }
   }
 
   function esUrlValida(url) {
     try { new URL(url); return true; } catch(e) { return false; }
+  }
+
+  // ─────────────────────────────────────────────
+  //  CERRAR AL TOCAR FUERA
+  // ─────────────────────────────────────────────
+  function clickFueraOverlay(e, id) {
+    if (e.target === document.getElementById(id)) {
+      if (id === 'loginOverlay') cerrarLogin();
+      else cerrarAdmin();
+    }
   }
 
   // ─────────────────────────────────────────────
@@ -684,13 +840,13 @@
     t.textContent = msg;
     t.classList.remove('hidden');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => t.classList.add('hidden'), 2500);
+    toastTimer = setTimeout(() => t.classList.add('hidden'), 2800);
   }
 
   // ─────────────────────────────────────────────
   //  INIT
   // ─────────────────────────────────────────────
-  renderizar();
+  cargarDesdeStorage();
   </script>
 </body>
 </html>
