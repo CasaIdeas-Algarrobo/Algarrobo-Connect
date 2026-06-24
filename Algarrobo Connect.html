@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Algarrobo Connect">
+  <meta name="theme-color" content="#0a0f1e">
+  <title>Algarrobo Connect</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul-900: #1e293b;
+      --azul-800: #1e40af;
+      --azul-700: #1d4ed8;
+      --azul-600: #2563eb;
+      --azul-500: #2563eb;
+      --azul-400: #3b82f6;
+      --azul-300: #93c5fd;
+      --azul-100: #dbeafe;
+      --azul-50:  #eff6ff;
+      --blanco:   #ffffff;
+      --gris-900: #111827;
+      --gris-700: #374151;
+      --gris-500: #6b7280;
+      --gris-200: #e5e7eb;
+      --gris-100: #f3f4f6;
+      --gris-50:  #f9fafb;
+      --fondo:    #f0f2f5;
+      --verde:    #16a34a;
+      --verde-bg: #dcfce7;
+      --rojo:     #dc2626;
+      --rojo-bg:  #fee2e2;
+      --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --radio: 14px;
+      --sombra: 0 4px 24px rgba(0,0,0,0.18);
+      --sombra-lg: 0 8px 40px rgba(0,0,0,0.28);
+    }
+
+    html { height: 100%; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font);
+      background: var(--fondo);
+      min-height: 100vh;
+      color: var(--gris-900);
+      display: flex; flex-direction: column;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--blanco);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--gris-200);
+    }
+    .header-inner {
+      max-width: 680px; margin: 0 auto;
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .logo-wrap {
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--azul-900), var(--azul-600));
+      border-radius: 12px;
+      width: 50px; height: 50px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-icon { font-size: 24px; }
+    .header-text { flex: 1; min-width: 0; }
+    .header-eyebrow {
+      font-size: 9px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--azul-500); margin-bottom: 2px;
+    }
+    .header-title {
+      font-size: 22px; font-weight: 900; color: var(--gris-900);
+      letter-spacing: -0.5px; line-height: 1;
+    }
+    .header-title .highlight { color: var(--azul-600); }
+    .header-loc {
+      font-size: 11px; color: var(--gris-500); margin-top: 3px; font-weight: 500;
+    }
+    .header-actions {
+      flex-shrink: 0;
+    }
+    .btn-admin {
+      background: var(--gris-100); border: 1.5px solid var(--gris-200);
+      border-radius: 10px; padding: 8px 14px;
+      font-size: 12px; font-weight: 700; color: var(--gris-700);
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+    .btn-admin:active { background: var(--azul-50); border-color: var(--azul-400); color: var(--azul-600); }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1; max-width: 680px; width: 100%;
+      margin: 0 auto; padding: 24px 16px 48px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+
+    /* ── HERO BANNER ── */
+    .hero {
+      background: linear-gradient(135deg, var(--azul-900) 0%, var(--azul-700) 60%, var(--azul-500) 100%);
+      border-radius: 18px;
+      padding: 28px 24px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -40px; right: -30px;
+      width: 180px; height: 180px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -60px; right: 40px;
+      width: 120px; height: 120px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+    .hero-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--azul-300); margin-bottom: 8px;
+    }
+    .hero-title {
+      font-size: 26px; font-weight: 900; color: var(--blanco);
+      letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 8px;
+    }
+    .hero-sub {
+      font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5;
+    }
+    .hero-dots {
+      display: flex; gap: 6px; margin-top: 18px;
+    }
+    .hero-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+    }
+    .hero-dot.active { background: var(--blanco); width: 18px; border-radius: 3px; }
+
+    /* ── SECCIÓN LABEL ── */
+    .section-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--gris-500);
+      display: flex; align-items: center; gap: 8px;
+      padding: 0 4px;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--gris-200);
+    }
+
+    /* ── APP CARDS ── */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .app-card {
+      background: var(--blanco);
+      border-radius: 18px;
+      border: 1.5px solid var(--gris-200);
+      box-shadow: var(--sombra);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
+      color: inherit;
+    }
+    .app-card:active { transform: scale(0.97); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .app-card.disabled { opacity: 0.45; pointer-events: none; }
+
+    .app-card-top {
+      padding: 20px 18px 16px;
+      flex: 1;
+    }
+    .app-icon-wrap {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 14px;
+    }
+    .icon-azul  { background: var(--azul-50); }
+    .icon-verde { background: var(--verde-bg); }
+    .icon-naranja { background: #fff7ed; }
+    .icon-morado  { background: #f5f3ff; }
+
+    .app-name {
+      font-size: 15px; font-weight: 800; color: var(--gris-900);
+      line-height: 1.2; margin-bottom: 4px;
+    }
+    .app-desc {
+      font-size: 11px; color: var(--gris-500); line-height: 1.4;
+    }
+
+    .app-card-footer {
+      border-top: 1px solid var(--gris-100);
+      padding: 11px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .app-status {
+      font-size: 10px; font-weight: 700;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .app-status::before {
+      content: ''; width: 6px; height: 6px;
+      border-radius: 50%; flex-shrink: 0;
+    }
+    .status-ok::before   { background: var(--verde); }
+    .status-ok   { color: var(--verde); }
+    .status-off::before  { background: var(--gris-500); }
+    .status-off  { color: var(--gris-500); }
+
+    .app-arrow {
+      font-size: 16px; color: var(--azul-400);
+    }
+
+    /* ── BOTÓN FULL WIDTH ── */
+    .btn-abrir {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px 20px;
+      border-radius: 13px; border: none;
+      font-size: 16px; font-weight: 700;
+      cursor: pointer; text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+      width: 100%;
+    }
+    .btn-abrir.azul {
+      background: linear-gradient(135deg, var(--azul-700), var(--azul-500));
+      color: var(--blanco);
+      box-shadow: 0 4px 14px rgba(29,78,216,0.35);
+    }
+    .btn-abrir.azul:active { transform: scale(0.98); opacity: 0.92; }
+    .btn-abrir.gris {
+      background: var(--gris-100);
+      border: 1.5px solid var(--gris-200);
+      color: var(--gris-700);
+    }
+    .btn-abrir.gris:active { background: var(--azul-50); border-color: var(--azul-300); color: var(--azul-600); }
+
+    /* ── CARD ACCESO RÁPIDO ── */
+    .quick-card {
+      background: var(--blanco);
+      border-radius: 16px;
+      border: 1.5px solid var(--gris-200);
+      box-shadow: var(--sombra);
+      padding: 20px;
+    }
+    .quick-title {
+      font-size: 13px; font-weight: 700; color: var(--gris-900);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .quick-title-icon { font-size: 16px; }
+    .quick-btns { display: flex; flex-direction: column; gap: 10px; }
+
+    /* ── PANEL ADMIN (oculto por defecto) ── */
+    .admin-overlay {
+      position: fixed; inset: 0;
+      background: rgba(17,24,39,0.6);
+      z-index: 100;
+      display: flex; align-items: flex-end;
+      padding-bottom: env(safe-area-inset-bottom);
+      animation: fadeIn 0.2s ease;
+    }
+    .admin-overlay.hidden { display: none; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .admin-sheet {
+      background: var(--blanco);
+      border-radius: 22px 22px 0 0;
+      width: 100%; max-height: 90vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 0 32px;
+      animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes slideUp {
+      from { transform: translateY(60px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    .admin-handle {
+      width: 36px; height: 4px; border-radius: 2px;
+      background: var(--gris-200); margin: 14px auto 0;
+    }
+    .admin-header {
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid var(--gris-100);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .admin-title { font-size: 17px; font-weight: 900; color: var(--gris-900); }
+    .admin-sub   { font-size: 12px; color: var(--gris-500); margin-top: 2px; }
+    .btn-cerrar-admin {
+      background: var(--gris-100); border: 1px solid var(--gris-200);
+      border-radius: 50%; width: 32px; height: 32px;
+      font-size: 14px; cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .admin-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 18px; }
+
+    .field-group { display: flex; flex-direction: column; gap: 6px; }
+    .field-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--azul-500);
+    }
+    .field-sublabel { font-size: 11px; color: var(--gris-500); margin-top: -2px; }
+
+    .field-row { display: flex; gap: 8px; }
+    .field-input {
+      flex: 1;
+      padding: 12px 14px;
+      border: 2px solid var(--gris-200); border-radius: 11px;
+      font-size: 15px; font-family: var(--font); color: var(--gris-900);
+      background: var(--gris-50); outline: none; -webkit-appearance: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .field-input:focus {
+      border-color: var(--azul-400); background: var(--blanco);
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+    }
+    .field-input::placeholder { color: #9ca3af; }
+
+    .field-emoji {
+      width: 48px; height: 48px; flex-shrink: 0;
+      padding: 12px;
+      border: 2px solid var(--gris-200); border-radius: 11px;
+      font-size: 20px; font-family: var(--font); color: var(--gris-900);
+      background: var(--gris-50); outline: none; -webkit-appearance: none;
+      text-align: center; cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .field-emoji:focus { border-color: var(--azul-400); }
+
+    .divider {
+      height: 1px; background: var(--gris-100); margin: 4px 0;
+    }
+
+    .btn-guardar {
+      padding: 15px 20px;
+      background: linear-gradient(135deg, var(--azul-700), var(--azul-500));
+      color: var(--blanco); border: none; border-radius: 13px;
+      font-size: 16px; font-weight: 800;
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
+      box-shadow: 0 4px 14px rgba(29,78,216,0.35);
+      transition: all 0.15s; width: 100%;
+    }
+    .btn-guardar:active { transform: scale(0.98); opacity: 0.9; }
+
+    .toast {
+      position: fixed; bottom: calc(24px + env(safe-area-inset-bottom));
+      left: 50%; transform: translateX(-50%);
+      background: var(--gris-900); color: var(--blanco);
+      padding: 12px 22px; border-radius: 30px;
+      font-size: 14px; font-weight: 600;
+      box-shadow: var(--sombra-lg); z-index: 999;
+      white-space: nowrap;
+      animation: toastIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .toast.hidden { display: none; }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center; padding: 16px;
+      font-size: 11px; color: var(--gris-500);
+      border-top: 1px solid var(--gris-200);
+      background: var(--blanco);
+      padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 400px) {
+      .apps-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 22px; }
+      .header-title { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <span class="logo-icon">🔗</span>
+      </div>
+      <div class="header-text">
+        <div class="header-eyebrow">CasaIdeas Algarrobo</div>
+        <div class="header-title">Algarrobo <span class="highlight">Connect</span></div>
+        <div class="header-loc">📍 Panel de acceso a aplicaciones</div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-admin" onclick="abrirAdmin()">⚙️ Config</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-label">Bienvenido</div>
+      <div class="hero-title">Tus herramientas,<br>en un solo lugar</div>
+      <div class="hero-sub">Accede rápidamente a las apps de tu tienda desde este panel.</div>
+      <div class="hero-dots">
+        <div class="hero-dot active"></div>
+        <div class="hero-dot"></div>
+        <div class="hero-dot"></div>
+      </div>
+    </div>
+
+    <!-- Apps grid -->
+    <div class="section-label">Aplicaciones</div>
+
+    <div class="apps-grid">
+      <!-- App 1 -->
+      <a id="card1" class="app-card" href="#" onclick="abrirApp(1, event)">
+        <div class="app-card-top">
+          <div class="app-icon-wrap icon-azul" id="icon1">
+            <span id="emoji1">📦</span>
+          </div>
+          <div class="app-name" id="nombre1">Control Sapito</div>
+          <div class="app-desc" id="desc1">Consulta de stock e inventario en bodega</div>
+        </div>
+        <div class="app-card-footer">
+          <span class="app-status status-ok" id="status1">Activa</span>
+          <span class="app-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- App 2 -->
+      <a id="card2" class="app-card" href="#" onclick="abrirApp(2, event)">
+        <div class="app-card-top">
+          <div class="app-icon-wrap icon-verde" id="icon2">
+            <span id="emoji2">🗂️</span>
+          </div>
+          <div class="app-name" id="nombre2">App 2</div>
+          <div class="app-desc" id="desc2">Configura el link desde el panel ⚙️</div>
+        </div>
+        <div class="app-card-footer">
+          <span class="app-status status-off" id="status2">Sin configurar</span>
+          <span class="app-arrow">→</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Acceso rápido: botones full width -->
+    <div class="section-label">Acceso rápido</div>
+
+    <div class="quick-card">
+      <div class="quick-title">
+        <span class="quick-title-icon">⚡</span>
+        Abrir directamente
+      </div>
+      <div class="quick-btns">
+        <a id="btn-rapido-1" class="btn-abrir azul" href="#" onclick="abrirApp(1, event)">
+          <span id="emoji-rapido-1">📦</span>
+          <span id="label-rapido-1">Control Sapito</span>
+        </a>
+        <a id="btn-rapido-2" class="btn-abrir gris" href="#" onclick="abrirApp(2, event)">
+          <span id="emoji-rapido-2">🗂️</span>
+          <span id="label-rapido-2">App 2</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    Algarrobo Connect &nbsp;·&nbsp; CasaIdeas Algarrobo
+  </footer>
+
+  <!-- PANEL ADMIN -->
+  <div id="adminOverlay" class="admin-overlay hidden" onclick="clickFueraAdmin(event)">
+    <div class="admin-sheet" id="adminSheet">
+      <div class="admin-handle"></div>
+      <div class="admin-header">
+        <div>
+          <div class="admin-title">⚙️ Configurar apps</div>
+          <div class="admin-sub">Edita nombre, ícono y enlace de cada app</div>
+        </div>
+        <button class="btn-cerrar-admin" onclick="cerrarAdmin()">✕</button>
+      </div>
+      <div class="admin-body">
+
+        <!-- App 1 -->
+        <div class="field-group">
+          <div class="field-label">App 1</div>
+          <div class="field-sublabel">Nombre e ícono</div>
+          <div class="field-row">
+            <input type="text" class="field-input" id="cfg-nombre1"
+              placeholder="Nombre de la app" value="Control Sapito"/>
+            <input type="text" class="field-emoji" id="cfg-emoji1"
+              placeholder="📦" value="📦" maxlength="2"/>
+          </div>
+          <input type="url" class="field-input" id="cfg-url1"
+            placeholder="https://…"
+            value=""/>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- App 2 -->
+        <div class="field-group">
+          <div class="field-label">App 2</div>
+          <div class="field-sublabel">Nombre e ícono</div>
+          <div class="field-row">
+            <input type="text" class="field-input" id="cfg-nombre2"
+              placeholder="Nombre de la app" value="App 2"/>
+            <input type="text" class="field-emoji" id="cfg-emoji2"
+              placeholder="🗂️" value="🗂️" maxlength="2"/>
+          </div>
+          <input type="url" class="field-input" id="cfg-url2"
+            placeholder="https://…"
+            value=""/>
+        </div>
+
+        <button class="btn-guardar" onclick="guardarConfig()">✓ Guardar cambios</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script>
+  'use strict';
+
+  // ─────────────────────────────────────────────
+  //  ESTADO — guardado en localStorage
+  // ─────────────────────────────────────────────
+  const STORAGE_KEY = 'algarrobo_connect_v1';
+
+  const defaults = {
+    app1: { nombre: 'Control Sapito', emoji: '📦', url: '', desc: 'Consulta de stock e inventario en bodega' },
+    app2: { nombre: 'App 2',          emoji: '🗂️', url: '', desc: 'Configura el link desde el panel ⚙️' },
+  };
+
+  function cargarEstado() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : { ...defaults };
+    } catch(e) { return { ...defaults }; }
+  }
+
+  function guardarEstado(estado) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(estado)); } catch(e) {}
+  }
+
+  let estado = cargarEstado();
+
+  // ─────────────────────────────────────────────
+  //  RENDERIZADO
+  // ─────────────────────────────────────────────
+  function renderizar() {
+    ['1','2'].forEach(n => {
+      const app = estado['app' + n];
+
+      // Card
+      document.getElementById('emoji'  + n).textContent = app.emoji;
+      document.getElementById('nombre' + n).textContent = app.nombre;
+
+      // Desc y estado
+      if (app.url) {
+        document.getElementById('desc'   + n).textContent = app.desc || app.nombre;
+        document.getElementById('status' + n).textContent = 'Activa';
+        document.getElementById('status' + n).className   = 'app-status status-ok';
+        document.getElementById('card'   + n).classList.remove('disabled');
+      } else {
+        document.getElementById('desc'   + n).textContent = 'Configura el link desde el panel ⚙️';
+        document.getElementById('status' + n).textContent = 'Sin configurar';
+        document.getElementById('status' + n).className   = 'app-status status-off';
+        document.getElementById('card'   + n).classList.add('disabled');
+      }
+
+      // Botones rápidos
+      document.getElementById('emoji-rapido-' + n).textContent = app.emoji;
+      document.getElementById('label-rapido-' + n).textContent = app.nombre;
+
+      if (app.url) {
+        document.getElementById('btn-rapido-' + n).classList.remove('disabled');
+        document.getElementById('btn-rapido-' + n).style.opacity = '';
+        document.getElementById('btn-rapido-' + n).style.pointerEvents = '';
+      } else {
+        document.getElementById('btn-rapido-' + n).style.opacity = '0.4';
+        document.getElementById('btn-rapido-' + n).style.pointerEvents = 'none';
+      }
+    });
+  }
+
+  // ─────────────────────────────────────────────
+  //  ABRIR APP
+  // ─────────────────────────────────────────────
+  function abrirApp(num, e) {
+    e.preventDefault();
+    const app = estado['app' + num];
+    if (!app.url) {
+      mostrarToast('⚙️ Configura el link primero');
+      return;
+    }
+    window.open(app.url, '_blank');
+  }
+
+  // ─────────────────────────────────────────────
+  //  PANEL ADMIN
+  // ─────────────────────────────────────────────
+  function abrirAdmin() {
+    // Rellenar campos con estado actual
+    ['1','2'].forEach(n => {
+      const app = estado['app' + n];
+      document.getElementById('cfg-nombre' + n).value = app.nombre;
+      document.getElementById('cfg-emoji'  + n).value = app.emoji;
+      document.getElementById('cfg-url'    + n).value = app.url;
+    });
+    document.getElementById('adminOverlay').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrarAdmin() {
+    document.getElementById('adminOverlay').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function clickFueraAdmin(e) {
+    if (e.target === document.getElementById('adminOverlay')) cerrarAdmin();
+  }
+
+  function guardarConfig() {
+    const n1 = document.getElementById('cfg-nombre1').value.trim();
+    const n2 = document.getElementById('cfg-nombre2').value.trim();
+    const u1 = document.getElementById('cfg-url1').value.trim();
+    const u2 = document.getElementById('cfg-url2').value.trim();
+
+    // Validar URLs si están rellenas
+    if (u1 && !esUrlValida(u1)) { mostrarToast('⚠️ URL de App 1 no válida'); return; }
+    if (u2 && !esUrlValida(u2)) { mostrarToast('⚠️ URL de App 2 no válida'); return; }
+
+    estado.app1 = {
+      nombre: n1 || 'App 1',
+      emoji:  document.getElementById('cfg-emoji1').value || '📦',
+      url:    u1,
+      desc:   n1 || 'App 1',
+    };
+    estado.app2 = {
+      nombre: n2 || 'App 2',
+      emoji:  document.getElementById('cfg-emoji2').value || '🗂️',
+      url:    u2,
+      desc:   n2 || 'App 2',
+    };
+
+    guardarEstado(estado);
+    renderizar();
+    cerrarAdmin();
+    mostrarToast('✅ Guardado correctamente');
+  }
+
+  function esUrlValida(url) {
+    try { new URL(url); return true; } catch(e) { return false; }
+  }
+
+  // ─────────────────────────────────────────────
+  //  TOAST
+  // ─────────────────────────────────────────────
+  let toastTimer;
+  function mostrarToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.remove('hidden');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.add('hidden'), 2500);
+  }
+
+  // ─────────────────────────────────────────────
+  //  INIT
+  // ─────────────────────────────────────────────
+  renderizar();
+  </script>
+</body>
+</html>
