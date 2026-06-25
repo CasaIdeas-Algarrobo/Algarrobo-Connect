@@ -19,6 +19,7 @@
       --gris-500: #6b7280; --gris-200: #e5e7eb; --gris-100: #f3f4f6;
       --gris-50: #f9fafb; --fondo: #f0f2f5;
       --verde: #16a34a; --verde-bg: #dcfce7;
+      --morado: #7c3aed; --morado-bg: #ede9fe;
       --rojo: #dc2626; --rojo-bg: #fee2e2;
       --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
       --sombra: 0 4px 24px rgba(0,0,0,0.18);
@@ -131,8 +132,9 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 24px; margin-bottom: 14px;
     }
-    .icon-azul  { background: var(--azul-50); }
-    .icon-verde { background: var(--verde-bg); }
+    .icon-azul   { background: var(--azul-50); }
+    .icon-verde  { background: var(--verde-bg); }
+    .icon-morado { background: var(--morado-bg); }
     .app-name { font-size: 15px; font-weight: 800; color: var(--gris-900); line-height: 1.2; margin-bottom: 4px; }
     .app-desc { font-size: 11px; color: var(--gris-500); line-height: 1.4; }
     .app-card-footer {
@@ -165,6 +167,10 @@
       background: var(--gris-100); border: 1.5px solid var(--gris-200); color: var(--gris-700);
     }
     .btn-abrir.gris:active { background: var(--azul-50); border-color: var(--azul-300); color: var(--azul-600); }
+    .btn-abrir.morado {
+      background: var(--morado-bg); border: 1.5px solid #c4b5fd; color: var(--morado);
+    }
+    .btn-abrir.morado:active { opacity: 0.88; }
 
     /* ACCESO RÁPIDO */
     .quick-card {
@@ -257,7 +263,6 @@
     }
     .field-emoji:focus { border-color: var(--azul-400); }
 
-    /* URL fija — solo lectura visual */
     .url-fija {
       display: flex; align-items: center; gap: 10px;
       background: var(--gris-50); border: 2px solid var(--gris-200);
@@ -325,8 +330,18 @@
       padding-bottom: calc(16px + env(safe-area-inset-bottom));
     }
 
+    /* Con 3 apps la tercera ocupa el ancho completo */
+    .app-card.full-width { grid-column: 1 / -1; flex-direction: row; }
+    .app-card.full-width .app-card-top { display: flex; align-items: center; gap: 16px; padding: 18px 20px; }
+    .app-card.full-width .app-icon-wrap { margin-bottom: 0; flex-shrink: 0; }
+    .app-card.full-width .app-card-footer { border-top: none; border-left: 1px solid var(--gris-100); padding: 0 18px; min-width: 70px; justify-content: center; flex-direction: column; gap: 4px; }
+
     @media (max-width: 400px) {
       .apps-grid { grid-template-columns: 1fr; }
+      .app-card.full-width { flex-direction: column; }
+      .app-card.full-width .app-card-top { flex-direction: column; align-items: flex-start; }
+      .app-card.full-width .app-icon-wrap { margin-bottom: 14px; }
+      .app-card.full-width .app-card-footer { border-left: none; border-top: 1px solid var(--gris-100); flex-direction: row; padding: 11px 18px; min-width: unset; }
       .hero-title { font-size: 22px; }
       .header-title { font-size: 19px; }
     }
@@ -364,6 +379,7 @@
     <div class="section-label">Aplicaciones</div>
 
     <div class="apps-grid">
+      <!-- App 0 -->
       <a class="app-card" href="#" onclick="abrirApp(0,event)">
         <div class="app-card-top">
           <div class="app-icon-wrap icon-azul"><span id="emoji-0">📦</span></div>
@@ -376,11 +392,27 @@
         </div>
       </a>
 
+      <!-- App 1 -->
       <a class="app-card" href="#" onclick="abrirApp(1,event)">
         <div class="app-card-top">
           <div class="app-icon-wrap icon-verde"><span id="emoji-1">🗂️</span></div>
           <div class="app-name" id="nombre-1">Listas de Inventario</div>
           <div class="app-desc" id="desc-1">Control de listas y conteo de inventario</div>
+        </div>
+        <div class="app-card-footer">
+          <span class="app-status status-ok">Activa</span>
+          <span class="app-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- App 2 — ocupa fila completa por ser impar -->
+      <a class="app-card full-width" href="#" onclick="abrirApp(2,event)">
+        <div class="app-card-top">
+          <div class="app-icon-wrap icon-morado"><span id="emoji-2">📅</span></div>
+          <div>
+            <div class="app-name" id="nombre-2">Días Libres Mensual</div>
+            <div class="app-desc" id="desc-2">Gestión de días libres mensuales</div>
+          </div>
         </div>
         <div class="app-card-footer">
           <span class="app-status status-ok">Activa</span>
@@ -401,6 +433,10 @@
         <a class="btn-abrir gris" href="#" onclick="abrirApp(1,event)">
           <span id="emoji-r-1">🗂️</span>
           <span id="label-r-1">Listas de Inventario</span>
+        </a>
+        <a class="btn-abrir morado" href="#" onclick="abrirApp(2,event)">
+          <span id="emoji-r-2">📅</span>
+          <span id="label-r-2">Días Libres Mensual</span>
         </a>
       </div>
     </div>
@@ -487,6 +523,24 @@
 
         <div class="divider"></div>
 
+        <!-- App 2 -->
+        <div class="field-group">
+          <div class="field-label">App 3 — Días Libres Mensual</div>
+          <div class="field-sublabel">Nombre e ícono visible</div>
+          <div class="field-row">
+            <input type="text" class="field-input" id="cfg-nombre-2" placeholder="Nombre"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-2" maxlength="2" placeholder="📅"/>
+          </div>
+          <input type="text" class="field-input" id="cfg-desc-2" placeholder="Descripción corta"/>
+          <div class="url-fija">
+            <span class="url-fija-icono">🔗</span>
+            <span class="url-fija-texto">casaideas-algarrobo.github.io/Gestion-Dias/</span>
+            <span class="url-fija-badge">ACTIVA</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
         <!-- Cambiar contraseña -->
         <div class="field-group">
           <div class="field-label">Cambiar contraseña admin</div>
@@ -507,25 +561,29 @@
   <script>
   'use strict';
 
-  // ── APPS (URLs fijas, visibles para todos) ──────────────────────
   const APPS_BASE = [
     {
       url:    'https://casaideas-algarrobo.github.io/Control-Sapito-3.0/',
-      nombre: 'Consulta Inventario Sapito 3.0',
+      nombre: 'Control Sapito 3.0',
       emoji:  '📦',
-      desc:   'Consulta de stock e inventario en bodega casa'
+      desc:   'Consulta de stock e inventario en bodega'
     },
     {
       url:    'https://casaideas-algarrobo.github.io/Control-Listas-Sapito-3.0/',
-      nombre: 'Control Listas Sapito 3.0',
+      nombre: 'Listas de Inventario',
       emoji:  '🗂️',
-      desc:   'Control de listas de entrada y salidad de productos'
+      desc:   'Control de listas y conteo de inventario'
+    },
+    {
+      url:    'https://casaideas-algarrobo.github.io/Gestion-Dias/',
+      nombre: 'Días Libres Mensual',
+      emoji:  '📅',
+      desc:   'Gestión de días libres mensuales'
     }
   ];
 
-  // ── CONTRASEÑA (localStorage, por dispositivo del admin) ────────
   const PASS_KEY  = 'ac_pass_hash';
-  const NAMES_KEY = 'ac_nombres';   // solo nombres/emojis/desc personalizados
+  const NAMES_KEY = 'ac_nombres';
   const DEFAULT_PASS_HASH = btoa('algarrobo2024');
 
   function hashPass(p) { return btoa(unescape(encodeURIComponent(p))); }
@@ -533,7 +591,6 @@
 
   let sesion = false;
 
-  // ── NOMBRES PERSONALIZADOS (localStorage) ───────────────────────
   function cargarNombres() {
     try {
       const raw = localStorage.getItem(NAMES_KEY);
@@ -544,7 +601,6 @@
     try { localStorage.setItem(NAMES_KEY, JSON.stringify(data)); } catch(e) {}
   }
 
-  // ── ESTADO FINAL (base + personalizaciones) ──────────────────────
   let apps = APPS_BASE.map(a => ({...a}));
 
   function aplicarPersonalizaciones() {
@@ -559,24 +615,26 @@
     });
   }
 
-  // ── RENDER ───────────────────────────────────────────────────────
   function renderizar() {
     apps.forEach((app, i) => {
-      document.getElementById('emoji-'  + i).textContent = app.emoji;
-      document.getElementById('nombre-' + i).textContent = app.nombre;
-      document.getElementById('desc-'   + i).textContent = app.desc;
-      document.getElementById('emoji-r-' + i).textContent = app.emoji;
-      document.getElementById('label-r-' + i).textContent = app.nombre;
+      const eEl = document.getElementById('emoji-'   + i);
+      const nEl = document.getElementById('nombre-'  + i);
+      const dEl = document.getElementById('desc-'    + i);
+      const erEl = document.getElementById('emoji-r-' + i);
+      const lrEl = document.getElementById('label-r-' + i);
+      if (eEl)  eEl.textContent  = app.emoji;
+      if (nEl)  nEl.textContent  = app.nombre;
+      if (dEl)  dEl.textContent  = app.desc;
+      if (erEl) erEl.textContent = app.emoji;
+      if (lrEl) lrEl.textContent = app.nombre;
     });
   }
 
-  // ── ABRIR APP ────────────────────────────────────────────────────
   function abrirApp(i, e) {
     e.preventDefault();
     window.open(apps[i].url, '_blank');
   }
 
-  // ── LOGIN ────────────────────────────────────────────────────────
   function abrirLogin() {
     if (sesion) { abrirAdmin(); return; }
     document.getElementById('login-pass').value = '';
@@ -602,12 +660,14 @@
     }
   }
 
-  // ── ADMIN ────────────────────────────────────────────────────────
   function abrirAdmin() {
     apps.forEach((app, i) => {
-      document.getElementById('cfg-nombre-' + i).value = app.nombre;
-      document.getElementById('cfg-emoji-'  + i).value = app.emoji;
-      document.getElementById('cfg-desc-'   + i).value = app.desc;
+      const nEl = document.getElementById('cfg-nombre-' + i);
+      const eEl = document.getElementById('cfg-emoji-'  + i);
+      const dEl = document.getElementById('cfg-desc-'   + i);
+      if (nEl) nEl.value = app.nombre;
+      if (eEl) eEl.value = app.emoji;
+      if (dEl) dEl.value = app.desc;
     });
     document.getElementById('cfg-pass-nueva').value = '';
     document.getElementById('cfg-pass-conf').value  = '';
@@ -625,24 +685,21 @@
   }
 
   function guardarConfig() {
-    // Contraseña
     const pN = document.getElementById('cfg-pass-nueva').value;
     const pC = document.getElementById('cfg-pass-conf').value;
     if (pN) {
-      if (pN !== pC)       { mostrarToast('⚠️ Las contraseñas no coinciden'); return; }
-      if (pN.length < 6)   { mostrarToast('⚠️ Mínimo 6 caracteres'); return; }
+      if (pN !== pC)     { mostrarToast('⚠️ Las contraseñas no coinciden'); return; }
+      if (pN.length < 6) { mostrarToast('⚠️ Mínimo 6 caracteres'); return; }
       localStorage.setItem(PASS_KEY, hashPass(pN));
     }
 
-    // Guardar nombres/emojis
     const custom = apps.map((_, i) => ({
-      nombre: document.getElementById('cfg-nombre-' + i).value.trim(),
-      emoji:  document.getElementById('cfg-emoji-'  + i).value.trim(),
-      desc:   document.getElementById('cfg-desc-'   + i).value.trim(),
+      nombre: document.getElementById('cfg-nombre-' + i)?.value.trim() || '',
+      emoji:  document.getElementById('cfg-emoji-'  + i)?.value.trim() || '',
+      desc:   document.getElementById('cfg-desc-'   + i)?.value.trim() || '',
     }));
     guardarNombres(custom);
 
-    // Aplicar al estado
     apps.forEach((app, i) => {
       if (custom[i].nombre) app.nombre = custom[i].nombre;
       if (custom[i].emoji)  app.emoji  = custom[i].emoji;
@@ -654,7 +711,6 @@
     mostrarToast('✅ Guardado correctamente');
   }
 
-  // ── TOAST ─────────────────────────────────────────────────────────
   let toastTimer;
   function mostrarToast(msg) {
     const t = document.getElementById('toast');
@@ -664,7 +720,6 @@
     toastTimer = setTimeout(() => t.classList.add('hidden'), 2800);
   }
 
-  // ── INIT ──────────────────────────────────────────────────────────
   aplicarPersonalizaciones();
   renderizar();
   </script>
