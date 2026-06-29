@@ -386,9 +386,9 @@
       <!-- App 0 -->
       <a class="app-card" href="#" onclick="abrirApp(0,event)">
         <div class="app-card-top">
-          <div class="app-icon-wrap icon-azul"><span id="emoji-0">📦</span></div>
-          <div class="app-name" id="nombre-0">Control Sapito 3.0</div>
-          <div class="app-desc" id="desc-0">Consulta de stock e inventario en bodega</div>
+          <div class="app-icon-wrap icon-azul"><span id="emoji-0">🐸</span></div>
+          <div class="app-name" id="nombre-0">Control Sapito FV</div>
+          <div class="app-desc" id="desc-0">Stock, listas e inventario en bodega</div>
         </div>
         <div class="app-card-footer">
           <span class="app-status status-ok">Activa</span>
@@ -399,50 +399,15 @@
       <!-- App 1 -->
       <a class="app-card" href="#" onclick="abrirApp(1,event)">
         <div class="app-card-top">
-          <div class="app-icon-wrap icon-verde"><span id="emoji-1">🗂️</span></div>
-          <div class="app-name" id="nombre-1">Listas de Inventario</div>
-          <div class="app-desc" id="desc-1">Control de listas y conteo de inventario</div>
+          <div class="app-icon-wrap icon-morado"><span id="emoji-1">📅</span></div>
+          <div class="app-name" id="nombre-1">Días Libres Mensual</div>
+          <div class="app-desc" id="desc-1">Gestión de días libres mensuales</div>
         </div>
         <div class="app-card-footer">
           <span class="app-status status-ok">Activa</span>
           <span class="app-arrow">→</span>
         </div>
       </a>
-
-      <!-- App 2 — ocupa fila completa por ser impar -->
-      <a class="app-card full-width" href="#" onclick="abrirApp(2,event)">
-        <div class="app-card-top">
-          <div class="app-icon-wrap icon-morado"><span id="emoji-2">📅</span></div>
-          <div>
-            <div class="app-name" id="nombre-2">Días Libres Mensual</div>
-            <div class="app-desc" id="desc-2">Gestión de días libres mensuales</div>
-          </div>
-        </div>
-        <div class="app-card-footer">
-          <span class="app-status status-ok">Activa</span>
-          <span class="app-arrow">→</span>
-        </div>
-      </a>
-    </div>
-
-    <div class="section-label">Acceso rápido</div>
-
-    <div class="quick-card">
-      <div class="quick-title"><span>⚡</span> Abrir directamente</div>
-      <div class="quick-btns">
-        <a class="btn-abrir azul" href="#" onclick="abrirApp(0,event)">
-          <span id="emoji-r-0">📦</span>
-          <span id="label-r-0">Control Sapito 3.0</span>
-        </a>
-        <a class="btn-abrir gris" href="#" onclick="abrirApp(1,event)">
-          <span id="emoji-r-1">🗂️</span>
-          <span id="label-r-1">Listas de Inventario</span>
-        </a>
-        <a class="btn-abrir morado" href="#" onclick="abrirApp(2,event)">
-          <span id="emoji-r-2">📅</span>
-          <span id="label-r-2">Días Libres Mensual</span>
-        </a>
-      </div>
     </div>
 
   </main>
@@ -493,16 +458,16 @@
 
         <!-- App 0 -->
         <div class="field-group">
-          <div class="field-label">App 1 — Control Sapito</div>
+          <div class="field-label">App 1 — Control Sapito FV</div>
           <div class="field-sublabel">Nombre e ícono visible</div>
           <div class="field-row">
             <input type="text" class="field-input" id="cfg-nombre-0" placeholder="Nombre"/>
-            <input type="text" class="field-emoji" id="cfg-emoji-0" maxlength="2" placeholder="📦"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-0" maxlength="2" placeholder="🐸"/>
           </div>
           <input type="text" class="field-input" id="cfg-desc-0" placeholder="Descripción corta"/>
           <div class="url-fija">
             <span class="url-fija-icono">🔗</span>
-            <span class="url-fija-texto">casaideas-algarrobo.github.io/Control-Sapito-3.0/</span>
+            <span class="url-fija-texto">casaideas-algarrobo.github.io/Control_Sapito_FV/</span>
             <span class="url-fija-badge">ACTIVA</span>
           </div>
         </div>
@@ -511,31 +476,13 @@
 
         <!-- App 1 -->
         <div class="field-group">
-          <div class="field-label">App 2 — Listas de Inventario</div>
+          <div class="field-label">App 2 — Días Libres Mensual</div>
           <div class="field-sublabel">Nombre e ícono visible</div>
           <div class="field-row">
             <input type="text" class="field-input" id="cfg-nombre-1" placeholder="Nombre"/>
-            <input type="text" class="field-emoji" id="cfg-emoji-1" maxlength="2" placeholder="🗂️"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-1" maxlength="2" placeholder="📅"/>
           </div>
           <input type="text" class="field-input" id="cfg-desc-1" placeholder="Descripción corta"/>
-          <div class="url-fija">
-            <span class="url-fija-icono">🔗</span>
-            <span class="url-fija-texto">casaideas-algarrobo.github.io/Control-Listas-Sapito-3.0/</span>
-            <span class="url-fija-badge">ACTIVA</span>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- App 2 -->
-        <div class="field-group">
-          <div class="field-label">App 3 — Días Libres Mensual</div>
-          <div class="field-sublabel">Nombre e ícono visible</div>
-          <div class="field-row">
-            <input type="text" class="field-input" id="cfg-nombre-2" placeholder="Nombre"/>
-            <input type="text" class="field-emoji" id="cfg-emoji-2" maxlength="2" placeholder="📅"/>
-          </div>
-          <input type="text" class="field-input" id="cfg-desc-2" placeholder="Descripción corta"/>
           <div class="url-fija">
             <span class="url-fija-icono">🔗</span>
             <span class="url-fija-texto">casaideas-algarrobo.github.io/Gestion-Dias/</span>
@@ -567,16 +514,10 @@
 
   const APPS_BASE = [
     {
-      url:    'https://casaideas-algarrobo.github.io/Control-Sapito-3.0/',
-      nombre: 'Control Sapito 3.0',
-      emoji:  '📦',
-      desc:   'Consulta de stock e inventario en bodega'
-    },
-    {
-      url:    'https://casaideas-algarrobo.github.io/Control-Listas-Sapito-3.0/',
-      nombre: 'Listas de Inventario',
-      emoji:  '🗂️',
-      desc:   'Control de listas y conteo de inventario'
+      url:    'https://casaideas-algarrobo.github.io/Control_Sapito_FV/',
+      nombre: 'Control Sapito FV',
+      emoji:  '🐸',
+      desc:   'Stock, listas e inventario en bodega'
     },
     {
       url:    'https://casaideas-algarrobo.github.io/Gestion-Dias/',
@@ -587,7 +528,7 @@
   ];
 
   const PASS_KEY  = 'ac_pass_hash';
-  const NAMES_KEY = 'ac_nombres';
+  const NAMES_KEY = 'ac_nombres_v2';
   const DEFAULT_PASS_HASH = btoa('algarrobo2024');
 
   function hashPass(p) { return btoa(unescape(encodeURIComponent(p))); }
@@ -729,3 +670,4 @@
   </script>
 </body>
 </html>
+
