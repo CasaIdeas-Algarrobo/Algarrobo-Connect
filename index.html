@@ -408,6 +408,19 @@
           <span class="app-arrow">→</span>
         </div>
       </a>
+
+      <!-- App 2 -->
+      <a class="app-card" href="#" onclick="abrirApp(2,event)">
+        <div class="app-card-top">
+          <div class="app-icon-wrap icon-verde"><span id="emoji-2">🗑️</span></div>
+          <div class="app-name" id="nombre-2">Merma y Segunda</div>
+          <div class="app-desc" id="desc-2">Registro de merma, segunda y 2ª de primera</div>
+        </div>
+        <div class="app-card-footer">
+          <span class="app-status status-ok">Activa</span>
+          <span class="app-arrow">→</span>
+        </div>
+      </a>
     </div>
 
   </main>
@@ -492,6 +505,24 @@
 
         <div class="divider"></div>
 
+        <!-- App 2 -->
+        <div class="field-group">
+          <div class="field-label">App 3 — Merma y Segunda</div>
+          <div class="field-sublabel">Nombre e ícono visible</div>
+          <div class="field-row">
+            <input type="text" class="field-input" id="cfg-nombre-2" placeholder="Nombre"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-2" maxlength="2" placeholder="🗑️"/>
+          </div>
+          <input type="text" class="field-input" id="cfg-desc-2" placeholder="Descripción corta"/>
+          <div class="url-fija">
+            <span class="url-fija-icono">🔗</span>
+            <span class="url-fija-texto">casaideas-algarrobo.github.io/Control_Merma/</span>
+            <span class="url-fija-badge">ACTIVA</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
         <!-- Cambiar contraseña -->
         <div class="field-group">
           <div class="field-label">Cambiar contraseña admin</div>
@@ -524,11 +555,17 @@
       nombre: 'Días Libres Mensual',
       emoji:  '📅',
       desc:   'Gestión de días libres mensuales'
+    },
+    {
+      url:    'https://casaideas-algarrobo.github.io/Control_Merma/',
+      nombre: 'Merma y Segunda',
+      emoji:  '🗑️',
+      desc:   'Registro de merma, segunda y 2ª de primera'
     }
   ];
 
   const PASS_KEY  = 'ac_pass_hash';
-  const NAMES_KEY = 'ac_nombres_v2';
+  const NAMES_KEY = 'ac_nombres_v3';
   const DEFAULT_PASS_HASH = btoa('algarrobo2024');
 
   function hashPass(p) { return btoa(unescape(encodeURIComponent(p))); }
@@ -670,4 +707,3 @@
   </script>
 </body>
 </html>
-
