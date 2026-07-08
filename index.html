@@ -434,6 +434,19 @@
           <span class="app-arrow">→</span>
         </div>
       </a>
+
+      <!-- App 4 -->
+      <a class="app-card" href="#" onclick="abrirApp(4,event)">
+        <div class="app-card-top">
+          <div class="app-icon-wrap icon-verde"><span id="emoji-4">🕐</span></div>
+          <div class="app-name" id="nombre-4">Venta por Hora</div>
+          <div class="app-desc" id="desc-4">Registro de venta y boletas por hora vs meta</div>
+        </div>
+        <div class="app-card-footer">
+          <span class="app-status status-ok">Activa</span>
+          <span class="app-arrow">→</span>
+        </div>
+      </a>
     </div>
 
   </main>
@@ -547,7 +560,25 @@
           <input type="text" class="field-input" id="cfg-desc-3" placeholder="Descripción corta"/>
           <div class="url-fija">
             <span class="url-fija-icono">🔗</span>
-            <span class="url-fija-texto">casaideas-algarrobo.github.io/anticipo_mensual</span>
+            <span class="url-fija-texto">casaideas-algarrobo.github.io/Control_Anticipo/</span>
+            <span class="url-fija-badge">ACTIVA</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- App 4 -->
+        <div class="field-group">
+          <div class="field-label">App 5 — Venta por Hora</div>
+          <div class="field-sublabel">Nombre e ícono visible</div>
+          <div class="field-row">
+            <input type="text" class="field-input" id="cfg-nombre-4" placeholder="Nombre"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-4" maxlength="2" placeholder="🕐"/>
+          </div>
+          <input type="text" class="field-input" id="cfg-desc-4" placeholder="Descripción corta"/>
+          <div class="url-fija">
+            <span class="url-fija-icono">🔗</span>
+            <span class="url-fija-texto">casaideas-algarrobo.github.io/Control_Ventas/</span>
             <span class="url-fija-badge">ACTIVA</span>
           </div>
         </div>
@@ -594,15 +625,21 @@
       desc:   'Registro de merma, segunda y 2ª de primera'
     },
     {
-      url:    'https://casaideas-algarrobo.github.io/anticipo_mensual/',
+      url:    'https://casaideas-algarrobo.github.io/Control_Anticipo/',
       nombre: 'Anticipo Mensual',
       emoji:  '💵',
       desc:   'Solicitud de anticipo de sueldo (día 1 al 5)'
+    },
+    {
+      url:    'https://casaideas-algarrobo.github.io/Control_Ventas/',
+      nombre: 'Venta por Hora',
+      emoji:  '🕐',
+      desc:   'Registro de venta y boletas por hora vs meta'
     }
   ];
 
   const PASS_KEY  = 'ac_pass_hash';
-  const NAMES_KEY = 'ac_nombres_v4';
+  const NAMES_KEY = 'ac_nombres_v5';
   const DEFAULT_PASS_HASH = btoa('algarrobo2024');
 
   function hashPass(p) { return btoa(unescape(encodeURIComponent(p))); }
