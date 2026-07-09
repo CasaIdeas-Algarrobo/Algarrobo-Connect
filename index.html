@@ -113,8 +113,8 @@
 
     /* SECTION LABEL */
     .section-label {
-      font-size: 10px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 1.5px; color: var(--gris-500);
+      font-size: 15px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--gris-900);
       display: flex; align-items: center; gap: 8px; padding: 0 4px;
     }
     .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gris-200); }
@@ -380,7 +380,7 @@
       </div>
     </div>
 
-    <div class="section-label">Aplicaciones</div>
+    <div class="section-label">📦 Inventario</div>
 
     <div class="apps-grid">
       <!-- App 0 -->
@@ -389,19 +389,6 @@
           <div class="app-icon-wrap icon-azul"><span id="emoji-0">🐸</span></div>
           <div class="app-name" id="nombre-0">Control Sapito FV</div>
           <div class="app-desc" id="desc-0">Stock, listas e inventario en bodega</div>
-        </div>
-        <div class="app-card-footer">
-          <span class="app-status status-ok">Activa</span>
-          <span class="app-arrow">→</span>
-        </div>
-      </a>
-
-      <!-- App 1 -->
-      <a class="app-card" href="#" onclick="abrirApp(1,event)">
-        <div class="app-card-top">
-          <div class="app-icon-wrap icon-morado"><span id="emoji-1">📅</span></div>
-          <div class="app-name" id="nombre-1">Días Libres Mensual</div>
-          <div class="app-desc" id="desc-1">Gestión de días libres mensuales</div>
         </div>
         <div class="app-card-footer">
           <span class="app-status status-ok">Activa</span>
@@ -421,13 +408,34 @@
           <span class="app-arrow">→</span>
         </div>
       </a>
+    </div>
 
-      <!-- App 3 -->
-      <a class="app-card" href="#" onclick="abrirApp(3,event)">
+    <div class="section-label">💳 ACD / Cajas</div>
+
+    <div class="apps-grid">
+      <!-- App 4 -->
+      <a class="app-card" href="#" onclick="abrirApp(4,event)">
         <div class="app-card-top">
-          <div class="app-icon-wrap icon-azul"><span id="emoji-3">💵</span></div>
-          <div class="app-name" id="nombre-3">Anticipo Mensual</div>
-          <div class="app-desc" id="desc-3">Solicitud de anticipo de sueldo (día 1 al 5)</div>
+          <div class="app-icon-wrap icon-verde"><span id="emoji-4">🕐</span></div>
+          <div class="app-name" id="nombre-4">Venta por Hora</div>
+          <div class="app-desc" id="desc-4">Registro de venta y boletas por hora vs meta</div>
+        </div>
+        <div class="app-card-footer">
+          <span class="app-status status-ok">Activa</span>
+          <span class="app-arrow">→</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-label">🙋 Solicitudes de colaboradores</div>
+
+    <div class="apps-grid">
+      <!-- App 1 -->
+      <a class="app-card" href="#" onclick="abrirApp(1,event)">
+        <div class="app-card-top">
+          <div class="app-icon-wrap icon-morado"><span id="emoji-1">📅</span></div>
+          <div class="app-name" id="nombre-1">Días Libres Mensual</div>
+          <div class="app-desc" id="desc-1">Gestión de días libres mensuales</div>
         </div>
         <div class="app-card-footer">
           <span class="app-status status-ok">Activa</span>
@@ -435,12 +443,12 @@
         </div>
       </a>
 
-      <!-- App 4 -->
-      <a class="app-card" href="#" onclick="abrirApp(4,event)">
+      <!-- App 3 -->
+      <a class="app-card" href="#" onclick="abrirApp(3,event)">
         <div class="app-card-top">
-          <div class="app-icon-wrap icon-verde"><span id="emoji-4">🕐</span></div>
-          <div class="app-name" id="nombre-4">Venta por Hora</div>
-          <div class="app-desc" id="desc-4">Registro de venta y boletas por hora vs meta</div>
+          <div class="app-icon-wrap icon-azul"><span id="emoji-3">💵</span></div>
+          <div class="app-name" id="nombre-3">Anticipo Mensual</div>
+          <div class="app-desc" id="desc-3">Solicitud de anticipo de sueldo (día 1 al 5)</div>
         </div>
         <div class="app-card-footer">
           <span class="app-status status-ok">Activa</span>
