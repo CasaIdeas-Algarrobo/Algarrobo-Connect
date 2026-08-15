@@ -733,8 +733,11 @@
   }
 
   function abrirApp(i, e) {
-    e.preventDefault();
-    window.open(apps[i].url, '_blank');
+    if (e) e.preventDefault();
+    const app = apps[i];
+    if (!app || !app.url) return;
+    const win = window.open(app.url, '_blank');
+    if (!win) window.location.href = app.url;   // si se bloquea la pestaña nueva, abre en la misma
   }
 
   function abrirLogin() {
@@ -827,5 +830,4 @@
   </script>
 </body>
 </html>
-
 
