@@ -380,7 +380,7 @@
       </div>
     </div>
 
-    <div class="section-label">📦 Inventario y Sala</div>
+    <div class="section-label">📦 Inventario</div>
 
     <div class="apps-grid">
       <!-- App 0 -->
@@ -420,36 +420,6 @@
           <span class="app-status status-ok">Activa</span>
           <span class="app-arrow">→</span>
         </div>
-      
-      <!-- App 6 -->
-        <a class="app-card" href="#" onclick="abrirApp(6,event)">
-          <div class="app-card-top">
-            <div class="app-icon-wrap icon-azul"><span id="emoji-5">🗂️</span></div>
-            <div class="app-name" id="nombre-5">Checklist Mundos</div>
-            <div class="app-desc" id="desc-5">Revisa los checlist de tus mundos asignados</div
-          </div>
-           <div class="app-card-footer">
-           <span class="app-status status-ok">Activa</span>
-           <span class="app-arrow">→</span>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- App 7 -->
-        <div class="field-group">
-          <div class="field-label">App 8 — Checklist de Mundos</div>
-          <div class="field-sublabel">Nombre e ícono visible</div>
-          <div class="field-row">
-            <input type="text" class="field-input" id="cfg-nombre-7" placeholder="Nombre"/>
-            <input type="text" class="field-emoji" id="cfg-emoji-7" maxlength="2" placeholder="✅"/>
-          </div>
-          <input type="text" class="field-input" id="cfg-desc-7" placeholder="Descripción corta"/>
-          <div class="url-fija">
-            <span class="url-fija-icono">🔗</span>
-            <span class="url-fija-texto">script.google.com/…/exec</span>
-            <span class="url-fija-badge">ACTIVA</span>
-          </div>
-        </div>
       </a>
     </div>
 
@@ -475,6 +445,23 @@
           <div class="app-icon-wrap icon-azul"><span id="emoji-6">🗂️</span></div>
           <div class="app-name" id="nombre-6">Programación del Día</div>
           <div class="app-desc" id="desc-6">Tareas por área, metas y publicación al equipo</div>
+        </div>
+        <div class="app-card-footer">
+          <span class="app-status status-ok">Activa</span>
+          <span class="app-arrow">→</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-label">✅ Operación de sala</div>
+
+    <div class="apps-grid">
+      <!-- App 7 -->
+      <a class="app-card" href="#" onclick="abrirApp(7,event)">
+        <div class="app-card-top">
+          <div class="app-icon-wrap icon-verde"><span id="emoji-7">✅</span></div>
+          <div class="app-name" id="nombre-7">Checklist de Mundos</div>
+          <div class="app-desc" id="desc-7">Tareas por mundo, revisión de zona y labores operativas</div>
         </div>
         <div class="app-card-footer">
           <span class="app-status status-ok">Activa</span>
@@ -649,6 +636,60 @@
 
         <div class="divider"></div>
 
+        <!-- App 5 -->
+        <div class="field-group">
+          <div class="field-label">App 6 — Detalle de Pedido</div>
+          <div class="field-sublabel">Nombre e ícono visible</div>
+          <div class="field-row">
+            <input type="text" class="field-input" id="cfg-nombre-5" placeholder="Nombre"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-5" maxlength="2" placeholder="📦"/>
+          </div>
+          <input type="text" class="field-input" id="cfg-desc-5" placeholder="Descripción corta"/>
+          <div class="url-fija">
+            <span class="url-fija-icono">🔗</span>
+            <span class="url-fija-texto">casaideas-algarrobo.github.io/Control_Pedido/</span>
+            <span class="url-fija-badge">ACTIVA</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- App 6 -->
+        <div class="field-group">
+          <div class="field-label">App 7 — Programación del Día</div>
+          <div class="field-sublabel">Nombre e ícono visible</div>
+          <div class="field-row">
+            <input type="text" class="field-input" id="cfg-nombre-6" placeholder="Nombre"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-6" maxlength="2" placeholder="🗂️"/>
+          </div>
+          <input type="text" class="field-input" id="cfg-desc-6" placeholder="Descripción corta"/>
+          <div class="url-fija">
+            <span class="url-fija-icono">🔗</span>
+            <span class="url-fija-texto">script.google.com/…/exec?app=prog</span>
+            <span class="url-fija-badge">ACTIVA</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- App 7 -->
+        <div class="field-group">
+          <div class="field-label">App 8 — Checklist de Mundos</div>
+          <div class="field-sublabel">Nombre e ícono visible</div>
+          <div class="field-row">
+            <input type="text" class="field-input" id="cfg-nombre-7" placeholder="Nombre"/>
+            <input type="text" class="field-emoji" id="cfg-emoji-7" maxlength="2" placeholder="✅"/>
+          </div>
+          <input type="text" class="field-input" id="cfg-desc-7" placeholder="Descripción corta"/>
+          <div class="url-fija">
+            <span class="url-fija-icono">🔗</span>
+            <span class="url-fija-texto">script.google.com/…/exec</span>
+            <span class="url-fija-badge">ACTIVA</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
         <!-- Cambiar contraseña -->
         <div class="field-group">
           <div class="field-label">Cambiar contraseña admin</div>
@@ -689,28 +730,22 @@
       desc:   'Registro de merma, segunda y 2ª de primera'
     },
     {
-      url:    'https://casaideas-algarrobo.github.io/anticipo_mensual/',
+      url:    'https://casaideas-algarrobo.github.io/Control_Anticipo/',
       nombre: 'Anticipo Mensual',
       emoji:  '💵',
       desc:   'Solicitud de anticipo de sueldo (día 1 al 5)'
     },
     {
-      url:    'https://casaideas-algarrobo.github.io/ventaxhora/',
+      url:    'https://casaideas-algarrobo.github.io/Control_Ventas/',
       nombre: 'Venta por Hora',
       emoji:  '🕐',
       desc:   'Registro de venta y boletas por hora vs meta'
     },
     {
-      url:    'https://script.google.com/a/macros/casaideas.com/s/AKfycby_pnFMXKQlywSPGOXTfWNC5d4J3qkCSs4fc_ywjt5Is2yKzf5BO9MFKn4RPgf-EWAf/exec?modo=ver',
+      url:    'https://casaideas-algarrobo.github.io/Control_Pedido/',
       nombre: 'Detalle de Pedido',
       emoji:  '📦',
       desc:   'Detalle del pedido por mundo, categoría y GA'
-    },
-    {
-      url:    'https://casaideas-algarrobo.github.io/programacion/',
-      nombre: 'Programación del Día',
-      emoji:  '🗂️',
-      desc:   'Tareas por área, metas y publicación al equipo'
     },
     {
       url:    'https://script.google.com/macros/s/AKfycbzMUWCDLTtlJQJMdBmk5uUv2xBDZR_crFc2W9o9DE2he9ErdFsxDrMZ8dZDXimGYFin1A/exec?app=prog',
@@ -724,6 +759,12 @@
       emoji:  '✅',
       desc:   'Tareas por mundo, revisión de zona y labores operativas'
     },
+    {
+      url:    'PEGA_AQUI_EL_LINK_EXEC_DE_ESTRELLAS',
+      nombre: 'Camino de Estrellas',
+      emoji:  '⭐',
+      desc:   'Estrellas por méritos y premio del mes'
+    }
   ];
 
   const PASS_KEY  = 'ac_pass_hash';
@@ -778,6 +819,7 @@
     if (e) e.preventDefault();
     const app = apps[i];
     if (!app || !app.url) return;
+    if (app.url.startsWith('PEGA_AQUI')) { alert('Falta pegar el link /exec de "' + app.nombre + '" en el index.html del portal.'); return; }
     const win = window.open(app.url, '_blank');
     if (!win) window.location.href = app.url;   // si se bloquea la pestaña nueva, abre en la misma
   }
@@ -848,6 +890,7 @@
     guardarNombres(custom);
 
     apps.forEach((app, i) => {
+      if (!custom[i]) return;
       if (custom[i].nombre) app.nombre = custom[i].nombre;
       if (custom[i].emoji)  app.emoji  = custom[i].emoji;
       if (custom[i].desc)   app.desc   = custom[i].desc;
@@ -872,4 +915,3 @@
   </script>
 </body>
 </html>
-
